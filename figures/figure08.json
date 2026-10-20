@@ -1,0 +1,30 @@
+{
+  "number": 8,
+  "title": "Fault lines",
+  "kind": "states",
+  "columns": 2,
+  "figsize": [
+    10,
+    5
+  ],
+  "panels": [
+    {
+      "state": "fault_lines",
+      "label": "Complete grid"
+    },
+    {
+      "state": "fault_lines",
+      "label": "Fault line detail",
+      "crop_pixels": [
+        2902,
+        3533,
+        104,
+        754
+      ],
+      "source_pixels": [
+        4435,
+        4435
+      ]
+    }
+  ]
+}

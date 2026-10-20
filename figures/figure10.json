@@ -1,0 +1,28 @@
+{
+  "number": 10,
+  "title": "Reorganisation of a periodic configuration",
+  "kind": "states",
+  "columns": 2,
+  "figsize": [
+    10,
+    10
+  ],
+  "panels": [
+    {
+      "state": "reorganisation_t2000",
+      "label": "t = 2000"
+    },
+    {
+      "state": "reorganisation_t4000",
+      "label": "t = 4000"
+    },
+    {
+      "state": "reorganisation_t6000",
+      "label": "t = 6000"
+    },
+    {
+      "state": "reorganisation_t8000",
+      "label": "t = 8000"
+    }
+  ]
+}

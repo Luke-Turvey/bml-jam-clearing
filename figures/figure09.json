@@ -1,0 +1,25 @@
+{
+  "number": 9,
+  "title": "Highway",
+  "kind": "states",
+  "figsize": [
+    8,
+    4
+  ],
+  "panels": [
+    {
+      "state": "fault_lines",
+      "label": "",
+      "crop_pixels": [
+        1054,
+        1322,
+        59,
+        619
+      ],
+      "source_pixels": [
+        4435,
+        4435
+      ]
+    }
+  ]
+}

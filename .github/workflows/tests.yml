@@ -1,0 +1,21 @@
+name: Paper figures and numerical checks
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  figures:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python: ['3.10', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - run: python -m pip install -e '.[test]'
+      - run: python -m pytest -q
+      - run: bml figures all --output results/figures
+      - run: bml figures all --mode simulate --dry-run > results/simulation-plan.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: paper-figures-python-${{ matrix.python }}
+          path: results/

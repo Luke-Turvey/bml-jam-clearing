@@ -1,0 +1,44 @@
+# Python caches and build products
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Virtual environments and editor files
+.venv/
+venv/
+.ipynb_checkpoints/
+*.swp
+*.swo
+
+# Simulation histories and generated outputs
+/local_artifacts/
+/results/
+/videos/
+/images/
+/paper_images/
+*.npy
+*.npz
+
+# Compact numerical states distributed with the paper
+!/data/figures/states/*.npz
+
+# Rendered figures, videos and image-editor projects
+*.png
+*.pdf
+*.gif
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.xcf
+
+# Local application settings
+.codex/
+.agents/
+.aws/

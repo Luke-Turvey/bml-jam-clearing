@@ -1,0 +1,11 @@
+{
+  "number": 5,
+  "title": "Aperiodic clearing of a periodic configuration",
+  "kind": "states",
+  "panels": [
+    {
+      "state": "reorganisation_t6000",
+      "label": ""
+    }
+  ]
+}

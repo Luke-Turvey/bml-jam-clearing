@@ -1,0 +1,17 @@
+{
+  "number": 6,
+  "title": "Power-law fit for tile 113133313",
+  "kind": "scaling",
+  "data": "data/reference/log2_113133313.csv",
+  "skip_rows": 0,
+  "scale": "log",
+  "simulation_kind": "periodic",
+  "tile": "113133313",
+  "first_update": "east",
+  "fit_groups": [
+    {
+      "name": "all",
+      "selection": "all"
+    }
+  ]
+}

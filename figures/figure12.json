@@ -1,0 +1,16 @@
+{
+  "number": 12,
+  "title": "Random-configuration clearing times",
+  "kind": "scaling",
+  "data": "data/reference/log2_random.csv",
+  "skip_rows": 0,
+  "scale": "log",
+  "simulation_kind": "random",
+  "first_update": "north",
+  "fit_groups": [
+    {
+      "name": "all",
+      "selection": "all"
+    }
+  ]
+}

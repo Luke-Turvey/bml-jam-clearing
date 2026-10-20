@@ -1,0 +1,20 @@
+{
+  "number": 1,
+  "title": "Clearing after deleting a boundary row and column",
+  "kind": "states",
+  "columns": 1,
+  "figsize": [
+    6,
+    11
+  ],
+  "panels": [
+    {
+      "state": "figure01_n600",
+      "label": "n = 600, t = 3000, clearing time = 4390"
+    },
+    {
+      "state": "figure01_n599",
+      "label": "n = 599, t = 2995, clearing time = 7207"
+    }
+  ]
+}

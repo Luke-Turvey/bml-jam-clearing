@@ -1,0 +1,11 @@
+{
+  "number": 13,
+  "title": "Random configuration during clearing",
+  "kind": "states",
+  "panels": [
+    {
+      "state": "random_t6500",
+      "label": "n = 1100, t = 6500"
+    }
+  ]
+}

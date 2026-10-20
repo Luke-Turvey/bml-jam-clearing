@@ -1,0 +1,12 @@
+{
+  "recipe": "figures/figure12.json",
+  "fits": {
+    "all": {
+      "power": 1.156284677823205,
+      "intercept": 2.092395266311619,
+      "coefficient": 4.264555177374229,
+      "log_base": 2,
+      "observations": 123
+    }
+  }
+}

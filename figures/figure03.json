@@ -1,0 +1,20 @@
+{
+  "number": 3,
+  "title": "Explicit two-column evolution",
+  "kind": "states",
+  "columns": 2,
+  "figsize": [
+    10,
+    5
+  ],
+  "panels": [
+    {
+      "state": "figure03_t150",
+      "label": "n = 50, t = 150"
+    },
+    {
+      "state": "figure03_t220",
+      "label": "n = 50, t = 220"
+    }
+  ]
+}

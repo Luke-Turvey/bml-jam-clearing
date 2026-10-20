@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bml-jam-clearing"
+version = "0.1.0"
+description = "Reproducible finite-grid Biham–Middleton–Levine jam-clearing experiments"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = ["numpy>=1.24,<3", "matplotlib>=3.7,<4"]
+
+[project.optional-dependencies]
+test = ["pytest>=7,<9"]
+legacy = ["pandas", "scipy", "scikit-learn", "seaborn", "pillow", "jupyter"]
+
+[project.scripts]
+bml = "bml.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]

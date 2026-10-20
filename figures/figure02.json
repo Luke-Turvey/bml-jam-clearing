@@ -1,0 +1,16 @@
+{
+  "number": 2,
+  "title": "Clearing times along residue classes",
+  "kind": "scaling",
+  "data": "data/reference/log2_133333113.csv",
+  "skip_rows": 30,
+  "scale": "linear",
+  "simulation_kind": "periodic",
+  "tile": "133333113",
+  "first_update": "north",
+  "fit_groups": [],
+  "figsize": [
+    6.4,
+    4.8
+  ]
+}

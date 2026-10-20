@@ -1,0 +1,5 @@
+{
+  "experiments": [
+    {"name": "figure1", "kind": "periodic", "tile": "133333113", "sizes": [599, 600]}
+  ]
+}

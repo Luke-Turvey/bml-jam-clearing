@@ -1,0 +1,21 @@
+{
+  "number": 11,
+  "title": "Boundary between reorganised regions",
+  "kind": "states",
+  "panels": [
+    {
+      "state": "reorganisation_t4000",
+      "label": "",
+      "crop_pixels": [
+        3336,
+        4928,
+        68,
+        1560
+      ],
+      "source_pixels": [
+        7392,
+        7392
+      ]
+    }
+  ]
+}
