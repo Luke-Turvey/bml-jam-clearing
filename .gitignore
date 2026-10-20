@@ -4,6 +4,7 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
+.caches/
 *.egg-info/
 build/
 dist/
@@ -12,22 +13,21 @@ dist/
 .venv/
 venv/
 .ipynb_checkpoints/
+/miscellaneous/editor_backups/
 *.swp
 *.swo
+*.tmp
 
-# Simulation histories and generated outputs
-/local_artifacts/
-/results/
-/videos/
-/images/
-/paper_images/
+# Large saved trajectories and videos
+/data/evolution_snapshots/
+/data/videos/
+
+# Generated figures and manuscript products
+/figures/outputs/
+/latex/build/
 *.npy
 *.npz
-
-# Compact numerical states distributed with the paper
-!/data/figures/states/*.npz
-
-# Rendered figures, videos and image-editor projects
+!/data/figure_states/matrices/*.npz
 *.png
 *.pdf
 *.gif
@@ -37,15 +37,6 @@ venv/
 *.mkv
 *.webm
 *.xcf
-
-# Local application settings
-.codex/
-.agents/
-.aws/
-
-# LaTeX build products and generated paper figures
-/paper/generated/
-/paper/build/
 *.aux
 *.bbl
 *.blg
@@ -55,3 +46,11 @@ venv/
 *.toc
 *.out
 *.log
+
+# Local application settings
+.codex/
+.agents/
+.aws/
+
+# Saved figure PDFs distributed with the manuscript
+!/figures/paper/figure[0-9][0-9].pdf

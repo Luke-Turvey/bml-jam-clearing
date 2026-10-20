@@ -1,10 +1,25 @@
 # Jam Clearing in the Biham–Middleton–Levine Traffic Model
 
 Computational companion to the paper by **Alexander E. Holroyd and Luke A.
-Turvey**. The repository contains the North-first simulation model, numerical data,
-recipes for **Figures 1–13**, and the manuscript in `paper/`.
+Turvey**. Every active simulation starts with a North update. The repository
+contains the numerical inputs, recipes and source needed to generate Figures
+1–13 and build the manuscript.
 
-## Reproduce the figures
+## Directory layout
+
+| Directory | Purpose |
+| --- | --- |
+| [src/](src/) | Maintained BML simulator, explicit evolution, experiments and figure renderer |
+| [figures/](figures/README.md) | Saved manuscript PDFs, numbered recipes, experiment configurations and generated figure bundles |
+| [data/](data/README.md) | Figure matrices, clearing-time measurements, provenance and local research collections |
+| [latex/](latex/README.md) | Paper source, bibliography, appendix and manuscript build |
+| [tests/](tests/) | Numerical, data-integrity and figure-workflow tests |
+| [miscellaneous/](miscellaneous/README.md) | Exploratory scripts, notebook and local editor backups |
+
+The root also contains package configuration and this guide. The hidden
+`.github/` directory contains the GitHub Actions workflow.
+
+## Install, test and generate the figures
 
 Use Python 3.10 or newer, from the repository root:
 
@@ -12,107 +27,92 @@ Use Python 3.10 or newer, from the repository root:
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -e '.[test]'
-bml figures all --output results/figures
+python -m pytest -q
+bml figures all --update
 ```
 
-This builds all thirteen figures from the supplied numerical data. Each figure
-has PNG and PDF versions, the exact plotting recipe, numerical panel states or
-measurements, and a provenance report. The paper's LaTeX project and original
-large simulation directories are not required.
+The default output is `figures/outputs/`. Each numbered directory contains a
+PNG, a PDF, its exact recipe, a provenance report and the selected numerical
+values. These generated bundles are ignored by Git and rebuilt from the compact
+inputs in `data/`. GitHub Actions builds every figure and uploads the bundles
+as artifacts.
 
-Select individual figures by number:
+Select figures or choose a new output directory with:
 
 ```bash
-bml figures 3 8 9 10 11 --output results/selected
+bml figures 3 8 9 10 11 --output figures/outputs/selected
 ```
 
-Output directories must be new. Figures are written to
-`results/figures/figure01/figure01.pdf`, and similarly for the other numbers.
-The default resolution is 300 dpi; use `--dpi 600` for higher-resolution raster
-panels. Crops are defined in the recipes, independently of export resolution.
+Use `--update` when writing to an existing output directory. The default export
+resolution is 300 dpi; `--dpi 600` increases it without changing the crop region.
 
 ## Build the paper
 
 ```bash
-make -C paper
+make -C latex
 ```
 
-This regenerates the numbered figures into `paper/generated/` and compiles
-`paper/build/main.pdf`. The manuscript includes those PDFs directly, and its
-captions read fitted values and sample ranges from the generated results.
-A LaTeX installation with `latexmk` and the packages in `paper/preamble.sty`
-is required. See [paper build instructions](paper/README.md).
+This compiles `latex/build/main.pdf` using the saved PDFs in
+`figures/paper/` and their matching `figure_statistics.tex`. These small assets
+are included in version control. Normal compilation needs only a LaTeX
+installation with `latexmk` and the packages in `latex/preamble.sty`; it runs
+no Python code, figure rendering or simulations.
 
-## Replay and extend simulations
-
-All simulations start with a North update. Replay selected figure states with:
+To explicitly replace the saved figure set from the recorded numerical data:
 
 ```bash
-bml figures 1 3 4 5 8 9 10 11 13 --mode simulate --output results/replay
+make -C latex figures
+make -C latex
+```
+
+Rendering into `figures/outputs/` alone leaves the saved manuscript figures
+unchanged. See [manuscript build instructions](latex/README.md).
+
+## Where the paper's data comes from
+
+The [data provenance guide](data/README.md) maps every numbered figure to its
+input file, numerical construction and generation code. The
+[figure catalogue](figures/FIGURE_CATALOGUE.md) gives the tiles, sizes, times,
+row selections and crops.
+
+- The state illustrations are North-first trajectories generated from periodic
+  tiles or the supplied random initial matrix. Figure 3 instead evaluates an
+  explicit formula checked against the simulator.
+- Figures 2 and 7 select observations from the original deterministic
+  `133333113` clearing-time records, which use North-first updates.
+- Figures 6 and 12 use the new North-first datasets in
+  `data/clearing_times/north_first/`. The supplied sweeps reach n=999; Figure 12
+  records a reproducible seed and replicate scheme.
+- The appendix's classification tables remain the original historical survey
+  estimates. They are identified as historical in the manuscript and are not
+  regenerated by the numbered-figure build.
+
+## Replay or extend the simulations
+
+```bash
+bml figures 1 3 4 5 8 9 10 11 13 --mode simulate --output figures/outputs/replay
 bml figures all --mode simulate --dry-run
-```
-
-The supplied new North-first sweeps for Figures 6 and 12 reach n=999. Extend
-those sweeps, then rebuild the paper, with:
-
-```bash
 bml refresh-data --max-n 10000 --skip-states
-make -C paper
+make -C latex figures
+make -C latex
 ```
 
-This can require substantial computing time. Completed observations are
-checkpointed so a refresh can resume after interruption. To regenerate all
-snapshot states and the sweeps up to n=999, use `bml refresh-data --max-n 999`.
-The paper reports the actual generated sizes rather than assuming a completed
-full-size sweep. Figures 2 and 7 retain verified North-first records up to
-n=10000. Figure 12 uses explicit seeded samples; Figure 13 reuses its supplied
-initial random matrix and evolves it with North updates first.
+The refresh command extends Figures 6 and 12 to their full source size lists.
+It can require substantial time; completed observations are checkpointed in
+`data/clearing_times/north_first/checkpoints.json`. To regenerate the snapshots
+and the supplied sweeps through n=999, run `bml refresh-data --max-n 999`.
+Updating the saved manuscript figures also updates the caption values to match
+the generated sample ranges.
 
-See the [figure catalogue](docs/figures.md) and
-[numerical conventions](docs/reproducibility.md) for the full parameter lists.
-
-## Model
-
-A grid entry is `0` for a vacancy, `1` for an East car, and `3` for a North car.
-Updates are simultaneous within each direction. Cars leave through the top and
-right boundaries. Time counts individual directional updates. Array row zero
-is the top of the grid; repeated tiles are anchored at the bottom left.
-
-The model starts with North cars, as in the paper. Every active experiment and
-figure recipe uses the same convention. Historical mixed-convention data is
-retained separately for reference.
+Additional experiments are configured in `figures/experiments/`:
 
 ```bash
+bml run figures/experiments/smoke.json --output figures/outputs/smoke
 bml simulate --tile 113133313 -n 30
 bml verify-reference --max-n 30
 ```
 
-## Validation
-
-```bash
-python -m pytest -q
-```
-
-Tests check the dynamics against an independent car-by-car implementation,
-verify the explicit Figure 3 evolution, audit historical clearing times, check
-data integrity, and build every numbered figure. GitHub Actions runs these
-checks on Python 3.10 and 3.12 and publishes the resulting figures as artifacts.
-
-## Contents
-
-| Path | Contents |
-| --- | --- |
-| `figures/figure01.json` … `figure13.json` | Numbered figure recipes |
-| `data/figures/` | Compact panel states, original random initial state and provenance |
-| `data/north/` | New North-first clearing-time measurements and checkpoints |
-| `data/reference/` | Historical measurements and periodic-tile survey |
-| `paper/` | LaTeX manuscript, bibliography, appendix and build recipe |
-| `src/bml/` | Dynamics, explicit evolution, figure rendering and command-line tools |
-| `tests/` | Numerical and figure-workflow checks |
-| `docs/` | Figure catalogue and numerical conventions |
-| `configs/` | Supplementary size sweeps and exhaustive periodic experiments |
-| `archive/` | Exploratory research scripts and plotting notebook |
-
-Generated outputs belong in `results/`. Additional local simulation histories
-and videos can be retained in `local_artifacts/`; neither directory is required
-for the figure build or included in version control.
+See [numerical conventions](figures/NUMERICAL_NOTES.md) for update rules,
+coordinate phase, regression definitions and historical-data limitations.
+Saved trajectories are labelled under `data/evolution_snapshots/` and videos
+under `data/videos/`; both collections are ignored by Git. They are not required for the compact figure or manuscript build.

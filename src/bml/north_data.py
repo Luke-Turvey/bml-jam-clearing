@@ -22,7 +22,7 @@ def refresh_data(root='.', max_n=999, seed=2026, update_states=True):
     if max_n < 3 or seed < 0:
         raise ValueError('max-n must be at least 3 and seed must be nonnegative')
     root = Path(root)
-    ledger_path = root / 'data/figures/states.json'
+    ledger_path = root / 'data/figure_states/states.json'
     states = json.loads(ledger_path.read_text())
     if update_states:
         groups = defaultdict(list)
@@ -47,14 +47,14 @@ def refresh_data(root='.', max_n=999, seed=2026, update_states=True):
                         _store_state(root, key, states[key], grid)
         states['random_initial']['first_update'] = 'north'
         if 'first_step_sha256' in states['random_initial']:
-            states['random_initial']['historical_first_step_sha256'] = states['random_initial'].pop('first_step_sha256')
+            states['random_initial']['reconstruction_step_sha256'] = states['random_initial'].pop('first_step_sha256')
         _write_json(ledger_path, states)
-    directory = root / 'data/north'
+    directory = root / 'data/clearing_times/north_first'
     directory.mkdir(parents=True, exist_ok=True)
     checkpoint_path = directory / 'checkpoints.json'
     checkpoints = json.loads(checkpoint_path.read_text()) if checkpoint_path.exists() else {}
     for number in [6, 12]:
-        recipe = json.loads((root / f'figures/figure{number:02d}.json').read_text())
+        recipe = json.loads((root / f'figures/recipes/figure{number:02d}.json').read_text())
         source = root / recipe['size_source']
         rows = read_csv(source)
         identity = f'{number}:{seed if number == 12 else "periodic"}'

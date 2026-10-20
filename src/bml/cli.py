@@ -18,7 +18,7 @@ def main():
     experiment.add_argument('config')
     experiment.add_argument('--output', required=True)
     verify = commands.add_parser('verify-reference')
-    verify.add_argument('--data', default='data/reference')
+    verify.add_argument('--data', default='data/clearing_times/historical')
     verify.add_argument('--max-n', type=int, default=30)
     plot = commands.add_parser('plot')
     plot.add_argument('csv')
@@ -33,7 +33,7 @@ def main():
     figures = commands.add_parser('figures', help='reproduce numbered paper figures')
     figures.add_argument('numbers', nargs='*', default=['all'], help='all or figure numbers 1–13')
     figures.add_argument('--root', default='.', help='paper companion repository')
-    figures.add_argument('--output', default='results/figures')
+    figures.add_argument('--output', default='figures/outputs')
     figures.add_argument('--mode', choices=['recorded', 'simulate'], default='recorded')
     figures.add_argument('--dry-run', action='store_true', help='print inputs without running a build')
     figures.add_argument('--dpi', type=int, default=300)
@@ -44,8 +44,17 @@ def main():
     refresh.add_argument('--max-n', type=int, default=999)
     refresh.add_argument('--seed', type=int, default=2026)
     refresh.add_argument('--skip-states', action='store_true')
+    publication = commands.add_parser('save-paper-figures', help='save rendered PDFs and captions for the manuscript')
+    publication.add_argument('--source', default='figures/outputs')
+    publication.add_argument('--output', default='figures/paper')
     args = parser.parse_args()
-    if args.command == 'refresh-data':
+    if args.command == 'save-paper-figures':
+        from .publication import save_paper_figures
+        try:
+            save_paper_figures(args.source, args.output)
+        except (ValueError, FileNotFoundError) as exc:
+            parser.error(str(exc))
+    elif args.command == 'refresh-data':
         from .north_data import refresh_data
         refresh_data(args.root, args.max_n, args.seed, not args.skip_states)
     elif args.command == 'figures':

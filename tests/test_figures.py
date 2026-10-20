@@ -21,17 +21,17 @@ def test_explicit_evolution(n):
 def test_figure_catalog_and_data():
     build = plan(ROOT, range(1, 14), mode='simulate')
     assert [entry['figure'] for entry in build['figures']] == list(range(1, 14))
-    states = json.loads((ROOT / 'data/figures/states.json').read_text())
+    states = json.loads((ROOT / 'data/figure_states/states.json').read_text())
     for entry in states.values():
         grid = _load_state(ROOT, entry)
         assert hashlib.sha256(grid.tobytes()).hexdigest() == entry['state_sha256']
         assert entry['first_update'] == 'north'
     initial = _load_state(ROOT, states['random_initial'])
     first = step(initial, 2)
-    assert hashlib.sha256(first.tobytes()).hexdigest() == states['random_initial']['historical_first_step_sha256']
+    assert hashlib.sha256(first.tobytes()).hexdigest() == states['random_initial']['reconstruction_step_sha256']
     assert np.all(initial != 0)
     for number in range(1, 14):
-        recipe = json.loads((ROOT / 'figures' / f'figure{number:02d}.json').read_text())
+        recipe = json.loads((ROOT / 'figures/recipes' / f'figure{number:02d}.json').read_text())
         for panel in recipe.get('panels', []):
             if 'crop_pixels' in panel:
                 top, bottom, left, right = panel['crop_pixels']
@@ -88,22 +88,22 @@ def test_analytical_figure_simulation(tmp_path):
 
 def test_scaling_simulation_and_random_provenance(tmp_path):
     root = tmp_path / 'companion'
-    (root / 'figures').mkdir(parents=True)
-    (root / 'data/figures').mkdir(parents=True)
-    (root / 'data/figures/states.json').write_text('{}\n')
+    (root / 'figures/recipes').mkdir(parents=True)
+    (root / 'data/figure_states').mkdir(parents=True)
+    (root / 'data/figure_states/states.json').write_text('{}\n')
     (root / 'periodic.csv').write_text('3,13\n6,37\n9,61\n')
     recipe = {'number': 6, 'title': 'Small periodic sweep', 'kind': 'scaling',
               'data': 'periodic.csv', 'scale': 'log', 'simulation_kind': 'periodic',
               'tile': '113133313', 'first_update': 'north',
               'fit_groups': [{'name': 'all', 'selection': 'all'}]}
-    (root / 'figures/figure06.json').write_text(json.dumps(recipe))
+    (root / 'figures/recipes/figure06.json').write_text(json.dumps(recipe))
     report = reproduce(root, [6], tmp_path / 'periodic-replay', mode='simulate', dpi=50)
     assert report[0]['observations'] == 3
     (root / 'periodic.csv').write_text('3,999\n6,38\n9,62\n')
     with pytest.raises(ValueError, match='differ from recorded measurements'):
         reproduce(root, [6], tmp_path / 'mismatch', mode='simulate', dpi=50)
     recipe.update(number=12, title='Small random sweep', simulation_kind='random')
-    (root / 'figures/figure12.json').write_text(json.dumps(recipe))
+    (root / 'figures/recipes/figure12.json').write_text(json.dumps(recipe))
     for run in ['random-a', 'random-b']:
         report = reproduce(root, [12], tmp_path / run, mode='simulate', dpi=50, seed=9)
         assert report[0]['sample_provenance'] == 'North-first seeded samples'
@@ -114,35 +114,64 @@ def test_scaling_simulation_and_random_provenance(tmp_path):
 
 def test_paper_uses_numbered_outputs():
     import re
-    manuscript = (ROOT / 'paper/main.tex').read_text()
+    manuscript = (ROOT / 'latex/main.tex').read_text()
     images = re.findall(r'\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}', manuscript)
-    assert images == [f'generated/figure{n:02d}/figure{n:02d}.pdf' for n in range(1, 14)]
-    assert r'\input{generated/figure_statistics.tex}' in manuscript
-    assert (ROOT / 'paper/preamble.sty').is_file()
-    assert (ROOT / 'paper/refs.bib').is_file()
-    assert (ROOT / 'paper/sections/appendix.tex').is_file()
+    assert images == [f'../figures/paper/figure{n:02d}.pdf' for n in range(1, 14)]
+    assert r'\input{../figures/paper/figure_statistics.tex}' in manuscript
+    assert (ROOT / 'latex/preamble.sty').is_file()
+    assert (ROOT / 'latex/refs.bib').is_file()
+    assert (ROOT / 'latex/sections/appendix.tex').is_file()
 
 
 def test_refresh_data_is_north_first_and_resumable(tmp_path):
     from bml.north_data import refresh_data
     root = tmp_path / 'companion'
-    (root / 'figures').mkdir(parents=True)
-    (root / 'data/figures').mkdir(parents=True)
-    (root / 'data/figures/states.json').write_text('{}')
+    (root / 'figures/recipes').mkdir(parents=True)
+    (root / 'data/figure_states').mkdir(parents=True)
+    (root / 'data/figure_states/states.json').write_text('{}')
     (root / 'sizes.csv').write_text('3,999\n6,999\n3,888\n')
     for number in [6, 12]:
-        recipe = {'data': f'data/north/figure{number:02d}.csv', 'size_source': 'sizes.csv',
+        recipe = {'data': f'data/clearing_times/north_first/figure{number:02d}.csv', 'size_source': 'sizes.csv',
                   'tile': '113133313', 'first_update': 'north'}
-        (root / f'figures/figure{number:02d}.json').write_text(json.dumps(recipe))
+        (root / f'figures/recipes/figure{number:02d}.json').write_text(json.dumps(recipe))
     refresh_data(root, max_n=3, update_states=False)
-    first = (root / 'data/north/figure06.csv').read_text()
+    first = (root / 'data/clearing_times/north_first/figure06.csv').read_text()
     assert first.splitlines() == ['3,13', '3,13']
     refresh_data(root, max_n=6, update_states=False)
-    full = (root / 'data/north/figure06.csv').read_text()
+    full = (root / 'data/clearing_times/north_first/figure06.csv').read_text()
     assert full.splitlines() == ['3,13', '6,37', '3,13']
     refresh_data(root, max_n=6, update_states=False)
-    assert (root / 'data/north/figure06.csv').read_text() == full
+    assert (root / 'data/clearing_times/north_first/figure06.csv').read_text() == full
     for number in [6, 12]:
-        metadata = json.loads((root / f'data/north/figure{number:02d}.json').read_text())
+        metadata = json.loads((root / f'data/clearing_times/north_first/figure{number:02d}.json').read_text())
         assert metadata['first_update'] == 'north'
         assert metadata['source_rows'] == [0, 1, 2]
+
+
+def test_repository_layout_and_input_paths():
+    expected = {'miscellaneous', 'figures', 'tests', 'src', 'latex', 'data'}
+    visible = {p.name for p in ROOT.iterdir() if p.is_dir() and not p.name.startswith('.')}
+    assert expected <= visible
+    assert not visible.intersection({'archive', 'configs', 'docs', 'paper', 'results', 'local_artifacts'})
+    for path in (ROOT / 'figures/recipes').glob('figure*.json'):
+        recipe = json.loads(path.read_text())
+        for key in ['data', 'size_source']:
+            if key in recipe:
+                assert (ROOT / recipe[key]).is_file()
+                assert recipe[key].startswith('data/')
+    ledger = json.loads((ROOT / 'data/figure_states/states.json').read_text())
+    for entry in ledger.values():
+        assert entry['path'].startswith('data/figure_states/matrices/')
+        assert (ROOT / entry['path']).is_file()
+
+
+def test_paper_provenance_matches_recipes():
+    from bml.experiments import read_csv
+    for number in [6, 7, 12]:
+        path = ROOT / f'data/provenance/figure{number:02d}-fit.json'
+        summary = json.loads(path.read_text())
+        recipe = json.loads((ROOT / summary['recipe']).read_text())
+        selected = read_csv(ROOT / recipe['data'])[recipe.get('skip_rows', 0):]
+        assert summary['first_update'] == 'north'
+        assert summary['observations'] == len(selected)
+        assert sum(fit['observations'] for fit in summary['fits'].values()) == len(selected)

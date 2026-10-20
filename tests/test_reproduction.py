@@ -11,7 +11,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def test_historical_deterministic_data():
-    report = verify_reference(ROOT / 'data/reference', max_n=15)
+    report = verify_reference(ROOT / 'data/clearing_times/historical', max_n=15)
     assert report['checked'] >= 2500
     assert report['mismatches'] == []
     assert report['conventions']['g_periodic_133333113.csv']['north'] > 0
@@ -20,11 +20,11 @@ def test_historical_deterministic_data():
 
 def test_repeatable_workflow(tmp_path):
     a, b = tmp_path / 'a', tmp_path / 'b'
-    run(ROOT / 'configs/smoke.json', a)
-    run(ROOT / 'configs/smoke.json', b)
+    run(ROOT / 'figures/experiments/smoke.json', a)
+    run(ROOT / 'figures/experiments/smoke.json', b)
     for p in a.glob('*.csv'):
         assert p.read_bytes() == (b / p.name).read_bytes()
-    with pytest.raises(FileExistsError): run(ROOT / 'configs/smoke.json', a)
+    with pytest.raises(FileExistsError): run(ROOT / 'figures/experiments/smoke.json', a)
     output = tmp_path / 'plot.png'
     report = plot_csv(a / 'superlinear.csv', output)
     assert output.stat().st_size > 1000
@@ -41,10 +41,10 @@ def test_power_law_fit(tmp_path):
 
 def test_reference_integrity():
     import hashlib
-    manifest = json.loads((ROOT / 'data/manifest.json').read_text())
+    manifest = json.loads((ROOT / 'data/provenance/clearing_times_checksums.json').read_text())
     assert len(manifest) > 500
     for name, expected in manifest.items():
-        assert hashlib.sha256((ROOT / 'data/reference' / name).read_bytes()).hexdigest() == expected
+        assert hashlib.sha256((ROOT / 'data/clearing_times/historical' / name).read_bytes()).hexdigest() == expected
 
 
 def test_snapshot(tmp_path):

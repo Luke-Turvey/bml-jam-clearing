@@ -1,0 +1,136 @@
+{
+  "sources": {
+    "latex/main.tex": "a0a92f957b51de23df8bb7bd344d1aad02004163c205b861a7342e754dcc4eca",
+    "latex/sections/appendix.tex": "57112ee1b974a8074eb5a688c0db8b54acb0395721d0b27d2e5ae9a600185bed",
+    "latex/refs.bib": "15c3feeb9439e5d833b628b52620195fea320255695b9d8e6630ac2155beed9a",
+    "figures/paper/manifest.json": "5d90f31ef4de2a50fd00409a53f1abb2de67f8b1c597a657c05aa03fe3fc2770"
+  },
+  "fits": {
+    "6": {
+      "all": [
+        {
+          "minimum_cutoff": 0,
+          "count": 28,
+          "minimum_n": 3,
+          "maximum_n": 999,
+          "power": 1.2298128202685936,
+          "intercept": 1.9562059305600454
+        },
+        {
+          "minimum_cutoff": 100,
+          "count": 13,
+          "minimum_n": 114,
+          "maximum_n": 999,
+          "power": 1.287190348768923,
+          "intercept": 1.4633184518595692
+        },
+        {
+          "minimum_cutoff": 300,
+          "count": 7,
+          "minimum_n": 345,
+          "maximum_n": 999,
+          "power": 1.2801590447562674,
+          "intercept": 1.5324446084248826
+        }
+      ]
+    },
+    "7": {
+      "n_mod_3_equals_2": [
+        {
+          "minimum_cutoff": 0,
+          "count": 29,
+          "minimum_n": 5,
+          "maximum_n": 5999,
+          "power": 1.2134466411262113,
+          "intercept": 1.7546274409292155
+        },
+        {
+          "minimum_cutoff": 100,
+          "count": 18,
+          "minimum_n": 113,
+          "maximum_n": 5999,
+          "power": 1.2969195134675078,
+          "intercept": 0.9405193059028115
+        },
+        {
+          "minimum_cutoff": 300,
+          "count": 12,
+          "minimum_n": 344,
+          "maximum_n": 5999,
+          "power": 1.3381917928052787,
+          "intercept": 0.489518399435784
+        },
+        {
+          "minimum_cutoff": 1000,
+          "count": 5,
+          "minimum_n": 2000,
+          "maximum_n": 5999,
+          "power": 1.3957072046295198,
+          "intercept": -0.18949453739993227
+        }
+      ],
+      "other_residues": [
+        {
+          "minimum_cutoff": 0,
+          "count": 41,
+          "minimum_n": 4,
+          "maximum_n": 10000,
+          "power": 1.0229250030844879,
+          "intercept": 2.6380692367547582
+        },
+        {
+          "minimum_cutoff": 100,
+          "count": 23,
+          "minimum_n": 114,
+          "maximum_n": 10000,
+          "power": 1.001957535723473,
+          "intercept": 2.850509368228512
+        },
+        {
+          "minimum_cutoff": 300,
+          "count": 17,
+          "minimum_n": 343,
+          "maximum_n": 10000,
+          "power": 1.0009460212147636,
+          "intercept": 2.8623582149421156
+        },
+        {
+          "minimum_cutoff": 1000,
+          "count": 10,
+          "minimum_n": 1999,
+          "maximum_n": 10000,
+          "power": 1.000303295373898,
+          "intercept": 2.870313486401164
+        }
+      ]
+    },
+    "12": {
+      "all": [
+        {
+          "minimum_cutoff": 0,
+          "count": 110,
+          "minimum_n": 3,
+          "maximum_n": 999,
+          "power": 1.1781474374045828,
+          "intercept": 1.9677219838310978
+        },
+        {
+          "minimum_cutoff": 100,
+          "count": 49,
+          "minimum_n": 114,
+          "maximum_n": 999,
+          "power": 1.14348536248882,
+          "intercept": 2.2325764000011477
+        },
+        {
+          "minimum_cutoff": 300,
+          "count": 25,
+          "minimum_n": 327,
+          "maximum_n": 999,
+          "power": 1.146297063364622,
+          "intercept": 2.2053772548270203
+        }
+      ]
+    }
+  }
+}

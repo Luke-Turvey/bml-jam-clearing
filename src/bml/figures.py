@@ -34,7 +34,7 @@ def load_recipes(root, numbers):
     for number in sorted(set(numbers)):
         if number not in range(1, 14):
             raise ValueError('figure numbers must lie between 1 and 13')
-        path = root / 'figures' / f'figure{number:02d}.json'
+        path = root / 'figures/recipes' / f'figure{number:02d}.json'
         recipe = json.loads(path.read_text())
         if recipe['number'] != number:
             raise ValueError(f'figure number does not match {path}')
@@ -47,7 +47,7 @@ def load_recipes(root, numbers):
 def plan(root, numbers, mode='recorded'):
     """Describe a figure build without generating images or simulating grids."""
     root = Path(root)
-    states = json.loads((root / 'data/figures/states.json').read_text())
+    states = json.loads((root / 'data/figure_states/states.json').read_text())
     planned = []
     for recipe in load_recipes(root, numbers):
         entry = {'figure': recipe['number'], 'title': recipe['title'], 'kind': recipe['kind']}
@@ -101,7 +101,7 @@ def _simulate_states(root, recipes, states):
 
 def _measurements(root, recipe, mode, seed):
     path = root / recipe['data']
-    if path.parent.name == 'north':
+    if path.parent.name == 'north_first':
         metadata = json.loads(path.with_suffix('.json').read_text())
         if metadata['first_update'] != 'north' or metadata['sha256'] != _sha(path):
             raise ValueError('North-first measurement integrity check failed')
@@ -142,7 +142,7 @@ def reproduce(root, numbers, output, mode='recorded', dpi=300, seed=2026, update
     if not recipes:
         raise ValueError('select at least one figure')
     plan(root, numbers, mode)
-    states = json.loads((root / 'data/figures/states.json').read_text())
+    states = json.loads((root / 'data/figure_states/states.json').read_text())
     output.mkdir(parents=True, exist_ok=update)
     generated = _simulate_states(root, recipes, states) if mode == 'simulate' else {}
     reports = []
@@ -153,7 +153,7 @@ def reproduce(root, numbers, output, mode='recorded', dpi=300, seed=2026, update
         stem = directory / f'figure{number:02d}'
         report = {'figure': number, 'title': recipe['title'], 'mode': mode,
                   'python': platform.python_version(), 'numpy': np.__version__,
-                  'recipe_sha256': _sha(root / 'figures' / f'figure{number:02d}.json'),
+                  'recipe_sha256': _sha(root / 'figures/recipes' / f'figure{number:02d}.json'),
                   'first_update': 'north'}
         if recipe['kind'] == 'states':
             panels = []
@@ -189,6 +189,22 @@ def reproduce(root, numbers, output, mode='recorded', dpi=300, seed=2026, update
     all_reports = [json.loads(p.read_text()) for p in sorted(output.glob('figure*/provenance.json'))]
     (output / 'index.json').write_text(json.dumps(all_reports, indent=2) + '\n')
     _write_statistics(output, all_reports)
+    if output.resolve() == (root / 'figures/outputs').resolve():
+        provenance = root / 'data/provenance'
+        provenance.mkdir(parents=True, exist_ok=True)
+        for report in all_reports:
+            number = report['figure']
+            if number not in {6, 7, 12}:
+                continue
+            summary = {
+                'recipe': f'figures/recipes/figure{number:02d}.json',
+                'first_update': 'north',
+                'observations': report['observations'],
+                'fits': report['fits'],
+            }
+            (provenance / f'figure{number:02d}-fit.json').write_text(
+                json.dumps(summary, indent=2) + '\n'
+            )
     return reports
 
 
