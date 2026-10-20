@@ -13,7 +13,7 @@ def main():
     single.add_argument('--tile', required=True)
     single.add_argument('-n', type=int, required=True)
     single.add_argument('--max-steps', type=int)
-    single.add_argument('--first-update', choices=['north', 'east'], default='north')
+    single.add_argument('--first-update', choices=['north'], default='north')
     experiment = commands.add_parser('run')
     experiment.add_argument('config')
     experiment.add_argument('--output', required=True)
@@ -38,15 +38,24 @@ def main():
     figures.add_argument('--dry-run', action='store_true', help='print inputs without running a build')
     figures.add_argument('--dpi', type=int, default=300)
     figures.add_argument('--seed', type=int, default=2026)
+    figures.add_argument('--update', action='store_true', help='update generated files in an existing output directory')
+    refresh = commands.add_parser('refresh-data', help='regenerate North-first numerical figure data')
+    refresh.add_argument('--root', default='.')
+    refresh.add_argument('--max-n', type=int, default=999)
+    refresh.add_argument('--seed', type=int, default=2026)
+    refresh.add_argument('--skip-states', action='store_true')
     args = parser.parse_args()
-    if args.command == 'figures':
+    if args.command == 'refresh-data':
+        from .north_data import refresh_data
+        refresh_data(args.root, args.max_n, args.seed, not args.skip_states)
+    elif args.command == 'figures':
         from .figures import plan, reproduce
         try:
             numbers = list(range(1, 14)) if args.numbers == ['all'] else [int(n) for n in args.numbers]
             if args.dry_run:
                 print(json.dumps(plan(args.root, numbers, args.mode), indent=2))
             else:
-                reproduce(args.root, numbers, args.output, args.mode, args.dpi, args.seed)
+                reproduce(args.root, numbers, args.output, args.mode, args.dpi, args.seed, args.update)
         except (ValueError, FileNotFoundError, FileExistsError) as exc:
             parser.error(str(exc))
     elif args.command == 'simulate':

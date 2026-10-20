@@ -18,14 +18,16 @@ def read_csv(path):
 def run(config_path, output):
     config_path, output = Path(config_path), Path(output)
     config = json.loads(config_path.read_text())
-    # Create a new run directory; never silently overwrite previous results.
+    if config.get('first_update', 'north') != 'north':
+        raise ValueError('simulations must start with a North update')
+    # Each directory contains a single experiment configuration.
     output.mkdir(parents=True, exist_ok=False)
     (output / 'config.json').write_text(json.dumps(config, indent=2) + '\n')
     metadata = {
         'python': platform.python_version(), 'numpy': np.__version__,
         'config_sha256': hashlib.sha256(config_path.read_bytes()).hexdigest(),
         'encoding': {'empty': 0, 'east': 1, 'north': 3},
-        'first_update': config.get('first_update', 'north'), 'boundary': 'open',
+        'first_update': 'north', 'boundary': 'open',
         'random_stream': 'SeedSequence([seed, n, replicate]), default_rng',
     }
     (output / 'metadata.json').write_text(json.dumps(metadata, indent=2) + '\n')
@@ -48,7 +50,7 @@ def run(config_path, output):
                         grid = periodic(parse_tile(experiment['tile']), n)
                     else:
                         raise ValueError('kind must be random or periodic')
-                    time = clearing_time(grid, config.get('max_steps'), config.get('first_update', 'north'))
+                    time = clearing_time(grid, config.get('max_steps'))
                     writer.writerow([n, time, replicate])
                     stream.flush()
                     print(f'{name}: n={n}, replicate={replicate}, T={time}', flush=True)
@@ -56,7 +58,7 @@ def run(config_path, output):
 
 
 def verify_reference(data, max_n=30):
-    """Audit historical data against both update conventions, without changing it."""
+    """Audit historical data using North-first runs and directional duality."""
     data = Path(data)
     sources = [(data / 'periodic_113133313.csv', '113133313'),
                (data / 'g_periodic_133333113.csv', '133333113')]
@@ -69,7 +71,9 @@ def verify_reference(data, max_n=30):
                 continue
             grid = periodic(parse_tile(tile), n)
             north = clearing_time(grid)
-            east = clearing_time(grid, first_update='east')
+            dual = grid.T[::-1, ::-1]
+            dual = np.where(dual == 1, 3, np.where(dual == 3, 1, 0))
+            east = clearing_time(dual)
             checked += 1
             key = 'both' if north == east == expected else 'north' if north == expected else 'east' if east == expected else 'neither'
             counts[key] += 1

@@ -39,11 +39,11 @@ def evolve(grid, steps, first_update="north"):
     """Return the state at time `steps`, starting at time zero."""
     if not isinstance(steps, (int, np.integer)) or steps < 0:
         raise ValueError("steps must be a nonnegative integer")
-    if first_update not in {"north", "east"}:
-        raise ValueError("first_update must be north or east")
+    if first_update != "north":
+        raise ValueError("simulations must start with a North update")
     grid = validate(grid)
     for time in range(1, steps + 1):
-        grid = _step(grid, time + (first_update == "east"))
+        grid = _step(grid, time)
     return grid
 
 
@@ -52,13 +52,13 @@ def states_at(grid, times, first_update="north"):
     times = sorted(set(times))
     if any(not isinstance(t, (int, np.integer)) or t < 0 for t in times):
         raise ValueError("snapshot times must be nonnegative integers")
-    if first_update not in {"north", "east"}:
-        raise ValueError("first_update must be north or east")
+    if first_update != "north":
+        raise ValueError("simulations must start with a North update")
     grid = validate(grid)
     previous = 0
     for time in times:
         for t in range(previous + 1, time + 1):
-            grid = _step(grid, t + (first_update == "east"))
+            grid = _step(grid, t)
         previous = time
         yield time, grid.copy()
 
@@ -68,8 +68,8 @@ def clearing_time(grid, max_steps=None, first_update="north"):
     grid = validate(grid)
     if max_steps is not None and (not isinstance(max_steps, (int, np.integer)) or max_steps < 0):
         raise ValueError("max_steps must be a nonnegative integer")
-    if first_update not in {"north", "east"}:
-        raise ValueError("first_update must be north or east")
+    if first_update != "north":
+        raise ValueError("simulations must start with a North update")
     n = len(grid)
     limit = 5 * n * n - n if max_steps is None else max_steps
     time = 0
@@ -77,5 +77,5 @@ def clearing_time(grid, max_steps=None, first_update="north"):
         if time >= limit:
             raise TimeoutError(f"grid did not clear within {limit} steps")
         time += 1
-        grid = _step(grid, time + (first_update == "east"))
+        grid = _step(grid, time)
     return time

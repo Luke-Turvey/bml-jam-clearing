@@ -1,5 +1,7 @@
 {
   "recipe": "figures/figure07.json",
+  "first_update": "north",
+  "observations": 70,
   "fits": {
     "n_mod_3_equals_2": {
       "power": 1.2134466411262108,

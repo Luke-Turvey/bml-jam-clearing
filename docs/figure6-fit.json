@@ -1,12 +1,14 @@
 {
   "recipe": "figures/figure06.json",
+  "first_update": "north",
+  "observations": 28,
   "fits": {
     "all": {
-      "power": 1.2700144998449832,
-      "intercept": 1.7479869617359567,
-      "coefficient": 3.3588956158353636,
+      "power": 1.2298128202685932,
+      "intercept": 1.9562059305600479,
+      "coefficient": 3.880401491072507,
       "log_base": 2,
-      "observations": 38
+      "observations": 28
     }
   }
 }

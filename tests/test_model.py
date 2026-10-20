@@ -61,4 +61,13 @@ def test_validation_and_budget():
     with pytest.raises(TimeoutError): clearing_time([[1]], max_steps=1)
     with pytest.raises(ValueError): parse_tile('113')
     with pytest.raises(ValueError): evolve([[1]], -1)
-    assert clearing_time([[1]], first_update='east') == 1
+    with pytest.raises(ValueError, match='North'):
+        clearing_time([[1]], first_update='east')
+    with pytest.raises(ValueError, match='North'):
+        evolve([[1]], 1, first_update='east')
+
+
+def test_north_only_simulation_policy():
+    from bml.model import states_at
+    with pytest.raises(ValueError, match='North'):
+        list(states_at([[1]], [1], first_update='east'))

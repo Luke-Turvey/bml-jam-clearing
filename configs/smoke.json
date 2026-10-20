@@ -1,8 +1,36 @@
 {
   "seed": 2026,
   "experiments": [
-    {"name": "superlinear", "kind": "periodic", "tile": "113133313", "range": [3, 31, 3]},
-    {"name": "residue_classes", "kind": "periodic", "tile": "133333113", "range": [3, 31, 1]},
-    {"name": "random", "kind": "random", "sizes": [10, 20, 30], "replicates": 3}
-  ]
+    {
+      "name": "superlinear",
+      "kind": "periodic",
+      "tile": "113133313",
+      "range": [
+        3,
+        31,
+        3
+      ]
+    },
+    {
+      "name": "residue_classes",
+      "kind": "periodic",
+      "tile": "133333113",
+      "range": [
+        3,
+        31,
+        1
+      ]
+    },
+    {
+      "name": "random",
+      "kind": "random",
+      "sizes": [
+        10,
+        20,
+        30
+      ],
+      "replicates": 3
+    }
+  ],
+  "first_update": "north"
 }

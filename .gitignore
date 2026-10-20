@@ -42,3 +42,16 @@ venv/
 .codex/
 .agents/
 .aws/
+
+# LaTeX build products and generated paper figures
+/paper/generated/
+/paper/build/
+*.aux
+*.bbl
+*.blg
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.toc
+*.out
+*.log

@@ -50,7 +50,7 @@ def run_model_with_tracking(cars,n):
     tracking_mat = np.zeros(np.shape(cars))
     t=0
     while (cars != 0).any():
-        if t%2==1:
+        if t%2==0:
             cars = move_north(cars,n)
         else:
             cars = move_east(cars,n)
@@ -82,7 +82,7 @@ def animate_model(cars,n,init):
 
     t = 0
     while (t < max_frame) and (cars != 0).any():
-        if t%2==1:
+        if t%2==0:
             cars = move_north(cars,n)
         else:
             cars = move_east(cars,n)

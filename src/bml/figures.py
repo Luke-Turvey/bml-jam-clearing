@@ -38,6 +38,8 @@ def load_recipes(root, numbers):
         recipe = json.loads(path.read_text())
         if recipe['number'] != number:
             raise ValueError(f'figure number does not match {path}')
+        if recipe.get('first_update', 'north') != 'north':
+            raise ValueError('figure recipes must use North-first updates')
         recipes.append(recipe)
     return recipes
 
@@ -53,6 +55,8 @@ def plan(root, numbers, mode='recorded'):
             entry['panels'] = [dict(states[p['state']], crop_pixels=p.get('crop_pixels'))
                                for p in recipe['panels']]
             for panel in entry['panels']:
+                if panel['first_update'] != 'north':
+                    raise ValueError('panel data must use North-first updates; run bml refresh-data')
                 if not (root / panel['path']).is_file():
                     raise FileNotFoundError(panel['path'])
         else:
@@ -61,8 +65,8 @@ def plan(root, numbers, mode='recorded'):
                 raise ValueError('scaling figures require at least two observations')
             entry.update(data=recipe['data'], observations=len(rows), max_n=max(n for n, _ in rows),
                          first_update=recipe['first_update'])
-            if mode == 'simulate' and recipe['simulation_kind'] == 'random':
-                entry['samples'] = 'new seeded samples; historical initial states were not recorded'
+            if recipe['simulation_kind'] == 'random':
+                entry['samples'] = 'North-first seeded samples'
         planned.append(entry)
     return {'mode': mode, 'figures': planned}
 
@@ -73,6 +77,8 @@ def _simulate_states(root, recipes, states):
     generated = {}
     for key in sorted(keys):
         entry = states[key]
+        if entry['first_update'] != 'north':
+            raise ValueError('panel data must use North-first updates')
         if entry.get('engine') == 'analytical':
             generated[key] = linear_state(entry['n'], entry['time'])
         else:
@@ -94,7 +100,12 @@ def _simulate_states(root, recipes, states):
 
 
 def _measurements(root, recipe, mode, seed):
-    rows = read_csv(root / recipe['data'])
+    path = root / recipe['data']
+    if path.parent.name == 'north':
+        metadata = json.loads(path.with_suffix('.json').read_text())
+        if metadata['first_update'] != 'north' or metadata['sha256'] != _sha(path):
+            raise ValueError('North-first measurement integrity check failed')
+    rows = read_csv(path)
     indexed = list(enumerate(rows))[recipe.get('skip_rows', 0):]
     if mode == 'recorded':
         return [(n, time) for _, (n, time) in indexed]
@@ -120,7 +131,7 @@ def _measurements(root, recipe, mode, seed):
     return result
 
 
-def reproduce(root, numbers, output, mode='recorded', dpi=300, seed=2026):
+def reproduce(root, numbers, output, mode='recorded', dpi=300, seed=2026, update=False):
     """Build complete figures and numerical sidecars into a new output directory."""
     if mode not in {'recorded', 'simulate'}:
         raise ValueError('mode must be recorded or simulate')
@@ -132,17 +143,18 @@ def reproduce(root, numbers, output, mode='recorded', dpi=300, seed=2026):
         raise ValueError('select at least one figure')
     plan(root, numbers, mode)
     states = json.loads((root / 'data/figures/states.json').read_text())
-    output.mkdir(parents=True, exist_ok=False)
+    output.mkdir(parents=True, exist_ok=update)
     generated = _simulate_states(root, recipes, states) if mode == 'simulate' else {}
     reports = []
     for recipe in recipes:
         number = recipe['number']
         directory = output / f'figure{number:02d}'
-        directory.mkdir()
+        directory.mkdir(exist_ok=update)
         stem = directory / f'figure{number:02d}'
         report = {'figure': number, 'title': recipe['title'], 'mode': mode,
                   'python': platform.python_version(), 'numpy': np.__version__,
-                  'recipe_sha256': _sha(root / 'figures' / f'figure{number:02d}.json')}
+                  'recipe_sha256': _sha(root / 'figures' / f'figure{number:02d}.json'),
+                  'first_update': 'north'}
         if recipe['kind'] == 'states':
             panels = []
             for i, panel in enumerate(recipe['panels']):
@@ -162,14 +174,45 @@ def reproduce(root, numbers, output, mode='recorded', dpi=300, seed=2026):
             report['fits'] = save_scaling(recipe, rows, stem, dpi)
             report['data_sha256'] = _sha(root / recipe['data'])
             report['observations'] = len(rows)
+            data_metadata = (root / recipe['data']).with_suffix('.json')
+            if data_metadata.is_file():
+                report['measurement_provenance'] = json.loads(data_metadata.read_text())
             if mode == 'simulate' and recipe['simulation_kind'] == 'random':
                 report['random_stream'] = f'default_rng(SeedSequence([{seed}, n, replicate]))'
-                report['sample_provenance'] = 'new seeded samples'
+                report['sample_provenance'] = 'North-first seeded samples'
             else:
-                report['sample_provenance'] = 'recorded paper measurements'
+                report['sample_provenance'] = 'North-first measurements'
         (directory / 'recipe.json').write_text(json.dumps(recipe, indent=2) + '\n')
         (directory / 'provenance.json').write_text(json.dumps(report, indent=2) + '\n')
         print(f'figure {number}: {stem}.png and .pdf', flush=True)
         reports.append(report)
-    (output / 'index.json').write_text(json.dumps(reports, indent=2) + '\n')
+    all_reports = [json.loads(p.read_text()) for p in sorted(output.glob('figure*/provenance.json'))]
+    (output / 'index.json').write_text(json.dumps(all_reports, indent=2) + '\n')
+    _write_statistics(output, all_reports)
     return reports
+
+
+def _write_statistics(output, reports):
+    words = {2: 'Two', 6: 'Six', 7: 'Seven', 12: 'Twelve'}
+    lines = ['% Numerical summaries for the generated paper figures.']
+    for report in reports:
+        n = report['figure']
+        if n not in words:
+            continue
+        rows = read_csv_with_header(output / f'figure{n:02d}' / 'measurements.csv')
+        prefix = 'Figure' + words[n]
+        lines.append('\\newcommand{\\' + prefix + 'MaxN}{' + str(max(x for x, _ in rows)) + '}')
+        lines.append('\\newcommand{\\' + prefix + 'Count}{' + str(len(rows)) + '}')
+        for group, fit in report['fits'].items():
+            suffix = {'all': '', 'n_mod_3_equals_2': 'Superlinear', 'other_residues': 'Other'}[group]
+            for key in ['power', 'intercept', 'coefficient']:
+                value = f"{fit[key]:.3f}"
+                lines.append('\\newcommand{\\' + prefix + suffix + key.capitalize() + '}{' + value + '}')
+    (output / 'figure_statistics.tex').write_text('\n'.join(lines) + '\n')
+
+
+def read_csv_with_header(path):
+    with path.open(newline='') as stream:
+        rows = csv.reader(stream)
+        next(rows)
+        return [(int(r[0]), int(r[1])) for r in rows]

@@ -1,8 +1,8 @@
 # Jam Clearing in the Biham–Middleton–Levine Traffic Model
 
 Computational companion to the paper by **Alexander E. Holroyd and Luke A.
-Turvey**. The repository contains the simulation model, measurements and grid
-states used in the paper, and recipes for **Figures 1–13**.
+Turvey**. The repository contains the North-first simulation model, numerical data,
+recipes for **Figures 1–13**, and the manuscript in `paper/`.
 
 ## Reproduce the figures
 
@@ -31,36 +31,45 @@ Output directories must be new. Figures are written to
 The default resolution is 300 dpi; use `--dpi 600` for higher-resolution raster
 panels. Crops are defined in the recipes, independently of export resolution.
 
-## Replay simulations
+## Build the paper
 
-The simulation mode recomputes grid states and clearing times before rendering.
-Deterministic results are checked against the supplied numerical records.
-Figure 3 evaluates the explicit formula, which is also tested against the
-step-by-step simulator. The four Figure 10 states are collected in one run.
+```bash
+make -C paper
+```
+
+This regenerates the numbered figures into `paper/generated/` and compiles
+`paper/build/main.pdf`. The manuscript includes those PDFs directly, and its
+captions read fitted values and sample ranges from the generated results.
+A LaTeX installation with `latexmk` and the packages in `paper/preamble.sty`
+is required. See [paper build instructions](paper/README.md).
+
+## Replay and extend simulations
+
+All simulations start with a North update. Replay selected figure states with:
 
 ```bash
 bml figures 1 3 4 5 8 9 10 11 13 --mode simulate --output results/replay
-
-# Inspect all simulation inputs without starting any computations.
 bml figures all --mode simulate --dry-run
-
-# Recompute the size sweeps for the scaling figures.
-bml figures 2 6 7 12 --mode simulate --output results/scaling-replay
 ```
 
-The largest sweeps reach n=10000 and can require substantial computing time.
-They are separate from the automated tests. Simulation memory scales with n²;
-selected snapshots are retained, rather than an entire animation history.
+The supplied new North-first sweeps for Figures 6 and 12 reach n=999. Extend
+those sweeps, then rebuild the paper, with:
 
-Figure 13 includes its reconstructed original initial state, so its recorded
-random realisation can be replayed exactly. The individual initial states behind
-Figure 12's historical measurements were not recorded. Simulation mode for
-Figure 12 therefore uses new random samples with an explicit seed (default
-2026, configurable with `--seed`); recorded mode reproduces its original data.
+```bash
+bml refresh-data --max-n 10000 --skip-states
+make -C paper
+```
 
-See the [figure catalogue](docs/figures.md) for every tile, size, time, crop and
-fit selection, and [numerical conventions](docs/reproducibility.md) for the
-relationship between the archived figures and the paper's equations.
+This can require substantial computing time. Completed observations are
+checkpointed so a refresh can resume after interruption. To regenerate all
+snapshot states and the sweeps up to n=999, use `bml refresh-data --max-n 999`.
+The paper reports the actual generated sizes rather than assuming a completed
+full-size sweep. Figures 2 and 7 retain verified North-first records up to
+n=10000. Figure 12 uses explicit seeded samples; Figure 13 reuses its supplied
+initial random matrix and evolves it with North updates first.
+
+See the [figure catalogue](docs/figures.md) and
+[numerical conventions](docs/reproducibility.md) for the full parameter lists.
 
 ## Model
 
@@ -69,12 +78,12 @@ Updates are simultaneous within each direction. Cars leave through the top and
 right boundaries. Time counts individual directional updates. Array row zero
 is the top of the grid; repeated tiles are anchored at the bottom left.
 
-The default model starts with North cars, as in the paper. Several recorded
-figures and datasets start with East cars; each figure recipe specifies its
-convention explicitly.
+The model starts with North cars, as in the paper. Every active experiment and
+figure recipe uses the same convention. Historical mixed-convention data is
+retained separately for reference.
 
 ```bash
-bml simulate --tile 113133313 -n 30 --first-update east
+bml simulate --tile 113133313 -n 30
 bml verify-reference --max-n 30
 ```
 
@@ -95,12 +104,13 @@ checks on Python 3.10 and 3.12 and publishes the resulting figures as artifacts.
 | --- | --- |
 | `figures/figure01.json` … `figure13.json` | Numbered figure recipes |
 | `data/figures/` | Compact panel states, original random initial state and provenance |
-| `data/reference/` | Clearing-time measurements and periodic-tile survey |
+| `data/north/` | New North-first clearing-time measurements and checkpoints |
+| `data/reference/` | Historical measurements and periodic-tile survey |
+| `paper/` | LaTeX manuscript, bibliography, appendix and build recipe |
 | `src/bml/` | Dynamics, explicit evolution, figure rendering and command-line tools |
 | `tests/` | Numerical and figure-workflow checks |
 | `docs/` | Figure catalogue and numerical conventions |
 | `configs/` | Supplementary size sweeps and exhaustive periodic experiments |
-| `scripts/` | Import tools for original numerical and figure records |
 | `archive/` | Exploratory research scripts and plotting notebook |
 
 Generated outputs belong in `results/`. Additional local simulation histories
