@@ -190,7 +190,7 @@ def reproduce(root, numbers, output, mode='recorded', dpi=300, seed=2026, update
     (output / 'index.json').write_text(json.dumps(all_reports, indent=2) + '\n')
     _write_statistics(output, all_reports)
     if output.resolve() == (root / 'figures/outputs').resolve():
-        provenance = root / 'data/provenance'
+        provenance = root / 'data/metadata'
         provenance.mkdir(parents=True, exist_ok=True)
         for report in all_reports:
             number = report['figure']

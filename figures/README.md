@@ -7,8 +7,9 @@ source lives in `../latex/`.
 | Location | Purpose |
 | --- | --- |
 | `recipes/figure01.json` … `figure13.json` | Exact panel, data-selection and fitting recipes |
-| `experiments/` | Small checks, size sweeps and the exhaustive periodic experiment |
-| [paper/](paper/README.md) | Saved manuscript PDFs, matching numerical captions and checksum manifest; included in version control |
+| `experiments/` | Small checks, experiments over specified sizes and the exhaustive periodic experiment |
+| [../latex/figures/](../latex/figures/) | Saved paper PDFs; included in version control |
+| `../data/metadata/paper-figures.json` | Checksums and computation reports for the saved paper figure set |
 | `outputs/` | Generated PNG/PDF bundles, numerical sidecars and provenance; ignored by Git |
 | [FIGURE_CATALOGUE.md](FIGURE_CATALOGUE.md) | Parameters, row selections and crops for every figure |
 | [NUMERICAL_NOTES.md](NUMERICAL_NOTES.md) | Model conventions, regression definitions and validation |
@@ -23,12 +24,11 @@ bml figures all --mode simulate --dry-run
 ```
 
 Recorded mode uses the supplied numerical inputs. Simulation mode recomputes
-selected states or clearing times and checks them against the records. Every
-active simulation starts with North cars. Figure 3 evaluates an explicit formula
+selected states or clearing times and checks them against the records. Figure 3 evaluates an explicit formula
 that is checked against the update rules in the tests.
 
-The paper includes the saved PDFs in `paper/`. Its captions read matching fits
-and sample ranges from `paper/figure_statistics.tex`. `make -C latex` only
-compiles the manuscript from those saved assets. Use `make -C latex figures`
-explicitly to render the recorded data and replace the saved set. Simulations
-remain separate commands.
+The paper includes the saved PDFs in `../latex/figures/`. Its captions read
+matching fits and sample ranges from `../latex/figure_statistics.tex`.
+To replace that set from a complete rendered build, run
+`bml save-paper-figures` from the repository root. Ordinary LaTeX compilation
+uses the saved assets. See the [paper guide](../latex/README.md).

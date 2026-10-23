@@ -12,10 +12,15 @@ from bml.model import states_at, step
 ROOT = Path(__file__).resolve().parents[1]
 
 
-@pytest.mark.parametrize('n', [2, 4, 10, 50])
+@pytest.mark.parametrize('n', [1, 2, 3, 4, 9, 10, 49, 50])
 def test_explicit_evolution(n):
-    for time, grid in states_at(periodic(parse_tile('1313'), n), range(6*n)):
+    for time, grid in states_at(periodic(parse_tile('1313'), n), range(6*n + 1)):
         np.testing.assert_array_equal(linear_state(n, time), grid)
+    last = linear_state(n, 6*n - 5)
+    # Cartesian (n, 1) is the bottom-right site in the returned array.
+    assert last[-1, -1] == 1
+    assert np.count_nonzero(last) == 1
+    assert not np.any(linear_state(n, 6*n - 4))
 
 
 def test_figure_catalog_and_data():
@@ -116,8 +121,8 @@ def test_paper_uses_numbered_outputs():
     import re
     manuscript = (ROOT / 'latex/main.tex').read_text()
     images = re.findall(r'\\includegraphics(?:\[[^\]]*\])?\{([^}]+)\}', manuscript)
-    assert images == [f'../figures/paper/figure{n:02d}.pdf' for n in range(1, 14)]
-    assert r'\input{../figures/paper/figure_statistics.tex}' in manuscript
+    assert images == [f'figures/figure{n:02d}.pdf' for n in range(1, 14)]
+    assert r'\input{figure_statistics.tex}' in manuscript
     assert (ROOT / 'latex/preamble.sty').is_file()
     assert (ROOT / 'latex/refs.bib').is_file()
     assert (ROOT / 'latex/sections/appendix.tex').is_file()
@@ -168,7 +173,7 @@ def test_repository_layout_and_input_paths():
 def test_paper_provenance_matches_recipes():
     from bml.experiments import read_csv
     for number in [6, 7, 12]:
-        path = ROOT / f'data/provenance/figure{number:02d}-fit.json'
+        path = ROOT / f'data/metadata/figure{number:02d}-fit.json'
         summary = json.loads(path.read_text())
         recipe = json.loads((ROOT / summary['recipe']).read_text())
         selected = read_csv(ROOT / recipe['data'])[recipe.get('skip_rows', 0):]

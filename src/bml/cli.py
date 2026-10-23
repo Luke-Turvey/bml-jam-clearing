@@ -46,12 +46,14 @@ def main():
     refresh.add_argument('--skip-states', action='store_true')
     publication = commands.add_parser('save-paper-figures', help='save rendered PDFs and captions for the manuscript')
     publication.add_argument('--source', default='figures/outputs')
-    publication.add_argument('--output', default='figures/paper')
+    publication.add_argument('--output', default='latex', help='paper source directory')
+    publication.add_argument('--manifest', default='data/metadata/paper-figures.json',
+                             help='figure checksums and computation records')
     args = parser.parse_args()
     if args.command == 'save-paper-figures':
         from .publication import save_paper_figures
         try:
-            save_paper_figures(args.source, args.output)
+            save_paper_figures(args.source, args.output, manifest_path=args.manifest)
         except (ValueError, FileNotFoundError) as exc:
             parser.error(str(exc))
     elif args.command == 'refresh-data':

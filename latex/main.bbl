@@ -1,0 +1,57 @@
+\begin{thebibliography}{10}
+
+\bibitem{2005_Holroyd}
+Omer Angel, Alexander Holroyd, and James Martin.
+\newblock {The Jammed Phase of the Biham-Middleton-Levine Traffic Model}.
+\newblock {\em Electronic Communications in Probability}, 10:167 -- 178, 2005.
+
+\bibitem{austin2006numbercarsselforganization}
+Tim~D. Austin and Itai Benjamini.
+\newblock For what number of cars must self organization occur in the
+  biham-middleton-levine traffic model from any possible starting
+  configuration?, 2006.
+
+\bibitem{bmlmodel}
+Ofer Biham, A.~Alan Middleton, and Dov Levine.
+\newblock Self-organization and a dynamical transition in traffic-flow models.
+\newblock {\em Physical Review A}, 46(10):R6124, 1992.
+
+\bibitem{dsouza2004geometricstructurecoexistingphases}
+Raissa~M. D'Souza.
+\newblock Coexisting phases and lattice dependence of a cellular automaton
+  model for traffic flow.
+\newblock {\em Physical Review E}, 71(6):066112, 2005.
+
+\bibitem{kozlov2023sufficientloadingconditionsselforganization}
+Valery~V. Kozlov, Alexander~G. Tatashev, and Marina~V. Yashina.
+\newblock Sufficient loading conditions for self-organization in the
+  $n$-dimensional version of bml model with stochastic direction choice, 2023.
+
+\bibitem{mordadi2019}
+Hamid~Reza Moradi, Akram Zardadi, and Zahra Heydarbeygi.
+\newblock The number of collisions in biham-middleton-levine model on a square
+  lattice with limited number of cars.
+\newblock {\em Appl. Math. E-Notes}, 19:243--249, 2019.
+
+\bibitem{Olmos_2017}
+L.~E. Olmos and J.~D. Muñoz.
+\newblock Traffic gridlock on a honeycomb city.
+\newblock {\em Physical Review E}, 95(3), March 2017.
+
+\bibitem{schonmann}
+Roberto~H. Schonmann.
+\newblock {On the Behavior of Some Cellular Automata Related to Bootstrap
+  Percolation}.
+\newblock {\em The Annals of Probability}, 20(1):174 -- 193, 1992.
+
+\bibitem{vanenter}
+Aernout C.~D. van Enter.
+\newblock Proof of {Straley's} argument for bootstrap percolation.
+\newblock {\em Journal of Statistical Physics}, 48:943--945, 1987.
+
+\bibitem{yashina2023necessaryconditionselforganizationbml}
+Marina~V. Yashina and Alexander~G. Tatashev.
+\newblock Necessary condition for self-organization in the bml model with
+  stochastic direction choice, 2023.
+
+\end{thebibliography}

@@ -1,0 +1,271 @@
+{
+  "method": "labelled literal simultaneous updates; no maintained simulator imports",
+  "sizes": {
+    "min": 1,
+    "max": 60,
+    "count": 60
+  },
+  "all_half_step_states_checked": 11040,
+  "coordinates": {
+    "site_order": [
+      "x",
+      "y"
+    ],
+    "origin": [
+      1,
+      1
+    ],
+    "x_direction": "left to right",
+    "y_direction": "bottom to top"
+  },
+  "north_first": true,
+  "all_labelled_trajectories_match": true,
+  "all_regional_states_match": true,
+  "regional_formula_features": [
+    "Final-region East parity is x-y-r even.",
+    "For odd n, remove the last-column East car on blocked cycles after an East update."
+  ],
+  "clearing_times": [
+    {
+      "n": 1,
+      "clearing_time": 2
+    },
+    {
+      "n": 2,
+      "clearing_time": 8
+    },
+    {
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "n": 4,
+      "clearing_time": 20
+    },
+    {
+      "n": 5,
+      "clearing_time": 26
+    },
+    {
+      "n": 6,
+      "clearing_time": 32
+    },
+    {
+      "n": 7,
+      "clearing_time": 38
+    },
+    {
+      "n": 8,
+      "clearing_time": 44
+    },
+    {
+      "n": 9,
+      "clearing_time": 50
+    },
+    {
+      "n": 10,
+      "clearing_time": 56
+    },
+    {
+      "n": 11,
+      "clearing_time": 62
+    },
+    {
+      "n": 12,
+      "clearing_time": 68
+    },
+    {
+      "n": 13,
+      "clearing_time": 74
+    },
+    {
+      "n": 14,
+      "clearing_time": 80
+    },
+    {
+      "n": 15,
+      "clearing_time": 86
+    },
+    {
+      "n": 16,
+      "clearing_time": 92
+    },
+    {
+      "n": 17,
+      "clearing_time": 98
+    },
+    {
+      "n": 18,
+      "clearing_time": 104
+    },
+    {
+      "n": 19,
+      "clearing_time": 110
+    },
+    {
+      "n": 20,
+      "clearing_time": 116
+    },
+    {
+      "n": 21,
+      "clearing_time": 122
+    },
+    {
+      "n": 22,
+      "clearing_time": 128
+    },
+    {
+      "n": 23,
+      "clearing_time": 134
+    },
+    {
+      "n": 24,
+      "clearing_time": 140
+    },
+    {
+      "n": 25,
+      "clearing_time": 146
+    },
+    {
+      "n": 26,
+      "clearing_time": 152
+    },
+    {
+      "n": 27,
+      "clearing_time": 158
+    },
+    {
+      "n": 28,
+      "clearing_time": 164
+    },
+    {
+      "n": 29,
+      "clearing_time": 170
+    },
+    {
+      "n": 30,
+      "clearing_time": 176
+    },
+    {
+      "n": 31,
+      "clearing_time": 182
+    },
+    {
+      "n": 32,
+      "clearing_time": 188
+    },
+    {
+      "n": 33,
+      "clearing_time": 194
+    },
+    {
+      "n": 34,
+      "clearing_time": 200
+    },
+    {
+      "n": 35,
+      "clearing_time": 206
+    },
+    {
+      "n": 36,
+      "clearing_time": 212
+    },
+    {
+      "n": 37,
+      "clearing_time": 218
+    },
+    {
+      "n": 38,
+      "clearing_time": 224
+    },
+    {
+      "n": 39,
+      "clearing_time": 230
+    },
+    {
+      "n": 40,
+      "clearing_time": 236
+    },
+    {
+      "n": 41,
+      "clearing_time": 242
+    },
+    {
+      "n": 42,
+      "clearing_time": 248
+    },
+    {
+      "n": 43,
+      "clearing_time": 254
+    },
+    {
+      "n": 44,
+      "clearing_time": 260
+    },
+    {
+      "n": 45,
+      "clearing_time": 266
+    },
+    {
+      "n": 46,
+      "clearing_time": 272
+    },
+    {
+      "n": 47,
+      "clearing_time": 278
+    },
+    {
+      "n": 48,
+      "clearing_time": 284
+    },
+    {
+      "n": 49,
+      "clearing_time": 290
+    },
+    {
+      "n": 50,
+      "clearing_time": 296
+    },
+    {
+      "n": 51,
+      "clearing_time": 302
+    },
+    {
+      "n": 52,
+      "clearing_time": 308
+    },
+    {
+      "n": 53,
+      "clearing_time": 314
+    },
+    {
+      "n": 54,
+      "clearing_time": 320
+    },
+    {
+      "n": 55,
+      "clearing_time": 326
+    },
+    {
+      "n": 56,
+      "clearing_time": 332
+    },
+    {
+      "n": 57,
+      "clearing_time": 338
+    },
+    {
+      "n": 58,
+      "clearing_time": 344
+    },
+    {
+      "n": 59,
+      "clearing_time": 350
+    },
+    {
+      "n": 60,
+      "clearing_time": 356
+    }
+  ],
+  "interpretation": "finite verification supports the separate all-n induction proof"
+}

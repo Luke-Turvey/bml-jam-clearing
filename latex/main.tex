@@ -1,8 +1,7 @@
+\pdfoutput=1
 \documentclass[reqno]{amsart}
 \usepackage{preamble}
-\input{../figures/paper/figure_statistics.tex}
-\tikzexternaldisable
-
+\input{figure_statistics.tex}
 
 \begin{document}
 
@@ -11,8 +10,6 @@
 \end{abstract}
 
 \maketitle
-
-
 
 \section{Introduction}
 
@@ -38,7 +35,6 @@ In this paper we focus on the time taken for finite jams to clear.  Let $[n]=\{1
 In particular, the \textbf{maximum clearing time} is the maximum over all configurations supported on $[n]^2$:
 $$\Tmax = \max_{W \in \{\ua,\ra, 0 \}^{[n]^2}} T(W,n).$$
 
-
 We are interested in the asymptotic behaviour of $\Tmax$ as $n\to\infty$. Clearly, $\Tmax$ is increasing since a maximising configuration $W$ on $[n]^2$ can be embedded in $[n+1]^2$ with a strictly larger clearing time.   As we will explain below, questions on clearing time may carry significant implications for the conjectural phase transition mentioned above. It is trivial to obtain bounds of the form $cn <\Tmax < C n^3$ for constants $c,C$. We provide the following improved upper bound.
 \begin{theorem} \label{thm:upper_bound} We have for all $n\geq 1$,
 \[ \Tmax \leq 5 n^2-n. \]
@@ -48,7 +44,7 @@ This is proved by bounding the time for the East cars in the top row of the squa
 	\[ \Tmax > c n^\alpha \]
 	for some $\alpha \in (1,2]$ and $c > 0$.
 \end{conjecture}
-The North-first finite-size data in Figure~\ref{fig:clearing_times} have fitted exponent $\FigureSixPower$ over the sampled sizes up to $n=\FigureSixMaxN$.
+The finite-size data in Figure~\ref{fig:clearing_times} have fitted exponent $\FigureSixPower$ over the sampled sizes up to $n=\FigureSixMaxN$.
 
 Our experiments focus on the clearing times $ T(W_n, n) $ for explicit sequences of configurations $ (W_n) $, where each $ W_n $ is obtained by restricting a deterministic spatially periodic configuration $ W $ on $ \mathbb{Z}^2 $ to $ [n]^2 $. To respect the periodicity of $ W $, we often consider subsequences of $ n $ that are integer multiples of its spatial period. Along such subsequences, the clearing times $ T(W_n, n) $ appear to fall into two qualitatively distinct categories depending on the choice of $ W $. Either: $ T(W_n, n) $ is a linear function plus a periodic of $n$ (so that it is bounded above and below by affine functions of $ n $ with the same linear term), and the space-time evolution of the model is given by a piecewise periodic function with polyhedral pieces. Or: $ T(W_n, n) $ grows faster than any linear function, and in fact grows like a nontrivial power $ n^a $ with $a>1$ (where $a$ may depend on $W$), and the evolution appears to exhibit chaotic features.
 
@@ -68,30 +64,21 @@ Specifically, deleting a car from a configuration can result in another car bein
     \end{tikzpicture}
     \end{split}
 \end{equation} (with its bottom left site located at $(1,1)$).  The sequence of configurations $(W_{3n})_{n\geq 1}$ is linear, while $(W_{3n-1})_{n\geq 1}$ appears to be superlinear with clearing time of order at least $n^{1.21}$.  Thus, for large $n$, removing the top row and right column of $W_{3n}$ increases the clearing by at least a factor of $n^{0.21}$.  See Figure~\ref{fig:lin_and_non_linear_behaviour} for snapshots illustrating the radically different behaviour. See Figure~\ref{fig:graph_subsequences} and Figure \ref{fig:log_log_graph_subsequences} in Section \ref{sec:analytical} for the clearing times $T(W_n,n)$ as a function of $n$. Note that the upper curve (which corresponds to $(W_{3n-1})_{n\geq 1}$) does not appear entirely smooth. Such fluctuations seem to be a feature of the superlinear sequences that we have investigated. It is unclear whether, or in what sense, a simple asymptotic formula such as $n^a$ holds in such cases.  See Section \ref{sec:analytical}.
- \captionsetup[subfigure]{labelformat=empty}
  \begin{figure}
 \centering
-\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{../figures/paper/figure01.pdf}
-\caption{The North-first BML model at time $t=5n$ for the initial configurations formed by tiling $[n]^2$ with tile \eqref{eq:interesting_tiling}. Deleting the topmost row and rightmost column changes the evolution and increases the clearing time.}
+\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{figures/figure01.pdf}
+\caption{The BML model at time $t=5n$ for the initial configurations formed by tiling $[n]^2$ with tile \eqref{eq:interesting_tiling}. Deleting the topmost row and rightmost column changes the evolution and increases the clearing time.}
 \label{fig:lin_and_non_linear_behaviour}
 \end{figure}
 
-
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{../figures/paper/figure02.pdf}
-\caption{Clearing times for tile \eqref{eq:interesting_tiling2}, with North updates at odd times. The plot contains \FigureTwoCount{} selected observations up to $n=\FigureTwoMaxN$. The different curves correspond to residue classes modulo $3$.}
+\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{figures/figure02.pdf}
+\caption{Clearing times for tile \eqref{eq:interesting_tiling2}. The plot contains \FigureTwoCount{} selected observations up to $n=\FigureTwoMaxN$. The different curves correspond to residue classes modulo $3$.}
 \label{fig:graph_subsequences}
 \end{figure}
 
 Besides clearing times, we will discuss several striking phenomena in the observed evolution of the superlinear configurations. These include the emergence of \textit{fault-lines} - diagonal boundaries of empty space that separate blocked regions and tend to proliferate with system size; \textit{highways} - narrow corridors of unimpeded flow enabled by localised blocking; and \textit{reorganisation}, in which the system rapidly settles into a different periodic structure with only limited car movement. Each of these behaviours contributes to the complex, nonlinear dynamics observed during clearing. In particular, the number and size of fault-lines and highways appear to grow with the grid size $n$, providing a plausible mechanism for the observed superlinear clearing times in certain configurations. We also compare these behaviours to those in randomly generated initial states, which—though less structured—exhibit similar chaotic patterns and evidence of non-linear scaling. See Section \ref{sec:heuristic} for more discussion.
-
-
-
-
-
-
-
 
 \subsection*{Implications for the phase transition}
 
@@ -105,156 +92,321 @@ We note that for bootstrap percolation models, an argument somewhat analogous to
 
 In summary, while there is much uncertainty, we believe that the possibility of jamming for all positive $p$ at least deserves serious consideration.
 
-
 \subsection*{Simulation methods}
 We next discuss some practical details. We start by arguing that for an initial configuration supported on $[n]^2$ cars can be ignored once they leave $[n]^2$. (This is convenient for simulation.)
 
- To state this precisely, we introduce an auxiliary model which we call the \textbf{Quadrant BML model} (QBML model) defined as follows. Let $\mathcal{L}$ be the lower left quadrant  $\{(i,j) \in \Z^2:i,j\leq 0\}$. At each time step, we first update the configuration according to the BML rules $(i), (ii)$, and then immediately replace all cars outside $\mathcal{L}$ with $0$. 
+To justify open-boundary simulations, it is useful to compare them with the
+full-lattice dynamics. Put
+\[
+ \mathcal L=\{(x,y)\in\mathbb Z^2:x\leq0,\ y\leq0\}.
+\]
+The \textbf{quadrant BML model} has the same updates as the BML model, except
+that cars are deleted immediately after leaving $\mathcal L$. As throughout
+the paper, the transition from time $t-1$ to time $t$ updates North cars when
+$t$ is odd and East cars when $t$ is even.
 
-\begin{proposition} \label{prop:cars_leaving_dont_matter}
-    For any initial configuration supported on $\mathcal{L}$, the BML model and the QBML model agree on $\mathcal{L}$ at all time steps.
+\begin{proposition}\label{prop:cars_leaving_dont_matter}
+For any initial configuration supported on $\mathcal L$, the full-lattice BML
+model and the quadrant BML model agree on $\mathcal L$ at every time.
 \end{proposition}
 
-In order to prove this we note the following result.
+\begin{lemma}\label{lem:free_flowing}
+In the full-lattice BML model started from a configuration supported on
+$\mathcal L$, every North car that leaves $\mathcal L$ subsequently moves on
+every North update. Every East car that leaves $\mathcal L$ subsequently
+moves on every East update.
+\end{lemma}
 
-\begin{lemma} \label{lem:free_flowing}
-     Consider any initial configuration supported on $\mathcal{L}$ in the BML model. Once any North (respectively East) car leaves $\mathcal{L}$, it moves at every odd (respectively even) time step. \end{lemma}
-\begin{proof}[Proof of Lemma \ref{lem:free_flowing}]
-    We demonstrate the claim for North cars in column $j$. First index these cars in increasing order, labelling the topmost car as $1$. We proceed by induction on the car index. Suppose car $k$ moves at every odd time step once it leaves $\mathcal{L}$. First note that outside $\mathcal{L}$ car $k+1$ can only be blocked by car $k$ due to the initial configuration. Let $t_k$ be the first time car $k$ is located in site $(j,1)$. By the induction hypothesis, car $k$ is in site $(j,i)$ at time $t_k+2i-2$ for $i \in \N$. Let $t_{k+1}$ be the first time car $k+1$ is located in site $(j,1)$.
-    Due to the update rules $t_{k+1} \geq t_k + 4$. Therefore at time $t_{k+1}$ car $k$ is above $(j,2)$ and is moving on each odd time step. Hence, it cannot block car $k+1$ and so car $k+1$ moves at each time step $t_{k+1}, t_{k+1} +2, t_{k+1} + 4 \ldots $.
-    The claim follows similarly for East cars in row $i$.
+\begin{proof}
+North cars have fixed horizontal coordinates and East cars have fixed
+vertical coordinates. Consequently, cars in $\mathcal N$ are North cars
+and cars in $\mathcal E$ are East cars, where
+\[
+ \begin{aligned}
+ \mathcal N&=\{(x,y):x\leq0,\ y\geq1\},\\
+ \mathcal E&=\{(x,y):x\geq1,\ y\leq0\}.
+ \end{aligned}
+\]
+There are no cars in the remaining exterior quadrant. We prove by induction
+over updates that the following conditions hold:
+\begin{enumerate}
+ \item No two North cars in a column of $\mathcal N$ are adjacent, and no
+ two East cars in a row of $\mathcal E$ are adjacent.
+ \item For every $x\leq0$, sites $(x,0)$ and $(x,1)$ are not both occupied
+ by North cars. For every $y\leq0$, sites $(0,y)$ and $(1,y)$ are not both
+ occupied by East cars.
+\end{enumerate}
+Both conditions hold initially because the exterior is empty. On a North
+update, condition~1 ensures that every North car in $\mathcal N$ has an
+empty site above it, so all
+these cars move and their separation is preserved. Fix a column $x\leq0$.
+A North car entering $\mathcal N$ in that column moves from $(x,0)$ to
+$(x,1)$. Its destination was empty; any exterior North car in that column
+whose $y$-coordinate was at least $2$ now has $y$-coordinate at least $3$.
+Thus the entering car is not adjacent to another exterior car.
+Moreover, its old site $(x,0)$ cannot simultaneously be filled by
+another North car: that site was occupied before the update. The two
+conditions are therefore preserved. If no car enters $(x,1)$, that
+site is empty after the update, so condition~2 also holds in that case.
+An East update does not change the positions of North cars, and the
+analogous argument preserves conditions~1 and~2 for East cars.
+This proves the induction.
 \end{proof}
 
-\begin{proof}[Proof of Proposition \ref{prop:cars_leaving_dont_matter}]
-
-       We first note that the BML update rule depends only on nearest neighbours, in the sense that if two configurations agree on a site $x$ and its four nearest neighbours then after one time step the configurations agree at $x$. Moreover, if $x$ contains an East car then only the site to its right is relevant and only if the time step is even. A similiar remark applies to a North car, while for an empty site only the sites below and left are relevant.
-
-        Suppose that the QBML model and the BML Model agree on $\mathcal{L}$ at time step $t$ . We claim that they agree on $\mathcal{L}$ at time step $t+1$.
-
-        On $\{ (i,j) : i,j <0\}$ the claim holds because each site's nearest neigbours agree at time step $t$.
-        
-        Now let $x \in \{(0,j): j<0\}$. If $x$ contains a North car at time $t$ then since the models agree on site $x+(0,1)$ at time $t$ the claim holds at $x$. If $x$ contains an empty site at time step $t$, the models agree on sites $x+(0,-1)$ and $x+(-1,0)$ at time step $t$ so the claim holds at $x$. If $x$ contains an East car at time step $t$ then we may assume $t$ is even. Clearly, $x+(1,0)$ is empty at time step $t$ in the QBML model so the car moves right. In the BML model, we claim that site $x+(1,0)$ must also be empty at time $t$. Indeed, clearly it cannot contain a North car. If it contains an East car then by Lemma \ref{lem:free_flowing} that East car must have been at site $x$ on time step $t-2$. Then $x$ could not contain an East car at time $t$, a contradiction. Thus the claim holds at $x$. 
-
-        The argument is analogous for $\{(i,0):i<0\}$.
-
-        Finally, consider $x=(0,0)$. If $x$ is empty then again $(0,-1)$ and $(-1,0)$ agree. If $x$ contains an East car then the argument above for $\{(0,j):j<0\}$ applies. Similiarly for a North car.
-
-    
+\begin{proof}[Proof of Proposition~\ref{prop:cars_leaving_dont_matter}]
+The two models agree at time $0$. Suppose they agree on $\mathcal L$ at
+time $t-1$. If $t$ is odd, the only possible difference between the models
+in the positions of North cars within $\mathcal L$ between times $t-1$
+and $t$ is whether a car moves from $(x,0)$ to $(x,1)$, with $x\leq0$.
+When $(x,0)$ contains a North car at time $t-1$, condition~2 in the
+preceding proof ensures that $(x,1)$ contains no North
+car; it contains no East car either. The destination is therefore empty
+in the full-lattice model, just as in the quadrant model. Both models
+remove the car from $\mathcal L$. All remaining North moves depend only
+on sites in $\mathcal L$, and the East cars do not move. If $t$ is even,
+the same reasoning applies to moves from $(0,y)$ to $(1,y)$. No car can
+enter $\mathcal L$ from outside because movement is only North or East.
+Thus the models agree at time $t$, completing the induction.
 \end{proof}
 
 We now provide a brief explanation of our simulation methodology. The simulations were implemented in Python.  The BML update rule was converted to a vectorised form which allowed us to take advantage of optimisations in NumPy. For more details on this algorithm see Appendix \ref{app:A}. Using this algorithm we see a substantial increase in speed over traditional implementations. This allowed us to simulate select configurations up to $n=10000$ for time steps $t > 10^6$ (corresponding to more than $10^{14}$ site updates) in a reasonable time frame. These large system sizes were crucial in obtaining convincing evidence of some of our findings. The simulation work was carried out using the computational facilities of the Advanced Computing Research Centre, University of Bristol - \url{http://www.bristol.ac.uk/acrc/}. 
 
-
-\section{Upper Bound for $\Tmax$}
+\section{Upper Bound for \texorpdfstring{$\Tmax$}{the Maximal Clearing Time}}
 
 In this section we prove the upper bound in Theorem \ref{thm:upper_bound} the time to clear of the model on finite $n$-by-$ n$ grids. This will be done by finding an upper bound for the clearing time of the East cars in the top row of the $n$-by-$ n$ grid. We first introduce a new model with deterministic dynamics on East cars in a $1 $-by-$ n$ grid called the Top Row Model (TRM) and argue that this model captures every possible evolution of the East cars in the top row of the BML model. An explicit upper bound for the clearing time of this Top Row Model can found, and this carries over to the top row of the BML model.
 
 Although, as discussed previously, the BML model lacks monotonicity, the key property of the TRM will be a certain form of monotonicity, see Lemma \ref{lem:partial_ordering}.
 
-Define the TRM in the following way. The TRM evolves on discrete even time steps $t \in 2 \mathbb{Z_+}$. Let $M_t:=(M_t(i,j))_{i,j \in [n]^2}$ be the state of the model at time $t$. We think of $M_t$ as a matrix indexed increasing from left to right and bottom to top starting at $1$ in the same manner as Cartesian co-ordinates. A state for the model is \textbf{valid} if
+The TRM evolves at even times. Its state is an $n$-by-$n$ matrix $M$ with
+entries indexed by $i,j\in[n]$. Column $j$ represents a car currently in
+position $j$; entry $M(i,j)$, for $i\geq j$, records its waiting time at
+the present or future position $i$. A state is \emph{valid} if
 \begin{enumerate}
-    \item $M_t(i,j) \in \{0,2,4\} \text{ for all } i,j$,
-    \item $M_t(i,j) = 0 \text{ if } i> j$,
-    \item For each fixed $j$, either $M_t(i,j) = 0$ for all $i \leq j$ or $M_t(i,j) \in \{2,4\}$ for all $i \leq j$.
+\item $M(i,j)\in\{0,2,4\}$ for all $i,j$;
+\item $M(i,j)=0$ when $i<j$;
+\item each column $j$ is either identically zero or satisfies
+$M(i,j)\in\{2,4\}$ for every $i\geq j$.
 \end{enumerate}
-Hence $M_t$ is a lower triangular matrix where each column is either identically $0$ or filled with $2$'s and $4$'s below and on the diagonal. We call the columns not identically $0$ \textbf{stacks}. We denote the set of all valid states as $\mathcal{M}$.
+We write $\mathcal M$ for the set of valid states, and call each nonzero
+column a \emph{stack}. Thus the potentially nonzero entries form the
+lower triangle in the usual matrix convention. A stack is \emph{blocked}
+if the column immediately to its right is a stack. Column $n+1$ is
+regarded as empty, and a stack moving right from column $n$ exits.
 
-We think of a stack as representing an East facing car. The quantity $M_t(i,j)$ represents the number of time steps that the car in position $j$ at time $t$ will be delayed once unblocked when it gets to position $i$. A delay of $4$ will correspond to the a temporary hold up due to a North car when we compare with the BML model. 
-
-The TRM model evolves as follows. Given $M_t$ we find $M_{t+2}$ by applying the following deterministic update rules to each column $k$ simultaneously. Here we denote column $k$ of a matrix $M$ as $M(\cdot,k)$, and if $M(i,k)=0$ for all $i$ then we write $M(\cdot,k)=0$.
-
+Let $\mathcal U(M)$ denote the state two time steps after $M$. Every
+stack in column $j$ is updated simultaneously as follows, using the
+occupancies in $M$:
 \begin{enumerate}
-    \item If $M_t(\cdot, k+1) = 0$ and $M_t(k,k) = 4$ then we set $M_{t+2}(\cdot, k) = M_t(\cdot, k)$ except that we set $M_{t+2}(k,k) = 2$.
-    \item If $M_t(\cdot, k+1) = 0$ and $M_t(k,k) = 2$ then we set $M_{t+2}(\cdot, k)=0$ and $M_{t+2}(\cdot, k+1) = M_t(\cdot, k)$ except that we set $M_{t+2}(k,k+1)=0$.
-    \item All other columns are kept the same.
+\item If it is blocked, leave it unchanged.
+\item If it is unblocked and $M(j,j)=4$, leave it in column $j$ and
+replace its diagonal entry by $2$.
+\item If it is unblocked and $M(j,j)=2$, move it to column $j+1$,
+discarding its old diagonal entry. If $j=n$, remove the stack.
 \end{enumerate}
-If a stack has another stack in the column directly to its right then we say it is \textbf{blocked}. These update rules correspond to the East cars in the top row moving right once unblocked in accordance with the `waiting times' on the diagonal. It is clear that if $M_t \in \mathcal{M}$ then $M_{t+2} \in \mathcal{M}$. 
+The moved stack in column $j+1$ has entries $M(i,j)$ for $i\geq j+1$,
+and zero entries for $i<j+1$. These rules preserve validity. To make the
+simultaneous convention explicit, each old stack contributes either
+its stationary column or its moved column to the new state; initially
+empty columns contribute nothing. A move has an initially empty
+destination, so two contributions cannot conflict.
 
-We define a partial order $\succeq$ on $\mathcal{M}$ which will be preserved under evolutions of the model. The idea will be that $M \succeq N$ if and only if the cars in $M$ have longer to wait.  First define functions $f_j,g_{i,j} : \mathcal{M} \ra \mathcal{M}$ in the following way. We let $f_j(M)$ as the matrix $M$ with column $j$ shifted right by one column as long as column $j$ has an empty column directly to its right (if this is not the case then $f_j(M) = M$). When shifting right, all entries above the diagonal are set to $0$.
-Further, $g_{i,j}(M)$ is the matrix $M$ with the element at index $(i,j)$ changed from a $4$ to a $2$. If the element at index $(i,j)$ is not a $4$ then $g_{i,j}(M)=M$.
+For $j\in[n]$, define $f_j:\mathcal M\to\mathcal M$ by shifting stack
+$j$ one position to the right and discarding its diagonal entry when
+its destination is empty; otherwise let $f_j(M)=M$. If column $j$ is
+empty, this map also leaves $M$ unchanged. More explicitly, for $j<n$
+with column $j+1$ empty,
+\[
+\bigl(f_j(M)\bigr)(i,l)=
+\begin{cases}
+ M(i,l),&l\notin\{j,j+1\},\\
+ 0,&l=j,\\
+ M(i,j),&l=j+1\text{ and }i\geq j+1,\\
+ 0,&l=j+1\text{ and }i<j+1.
+\end{cases}
+\]
+The map $f_n$ simply replaces column $n$ by zero. For
+$1\leq j\leq i\leq n$, define
+\[
+\bigl(g_{i,j}(M)\bigr)(k,l)=
+\begin{cases}
+ 2,&(k,l)=(i,j)\text{ and }M(i,j)=4,\\
+ M(k,l),&\text{otherwise}.
+\end{cases}
+\]
+In particular, $g_{i,j}$ changes only its specified entry.
 
-Formally, let $M \in \mathcal{M}$. If $M(\cdot, j+1) \neq 0$ then $f_j(M) = M$. If instead $M(\cdot, j+1) = 0$ then
-\begin{equation*}
-        (f_j(M)(k,l) =  \begin{cases}
-             M(k,l) & \text{ if } l \notin \{j,j+1\}, \\
-             0 & \text{ if } l=j, \\
-             M(k,l-1) & \text{ if } l=j+1 \text{ and } k \geq j+1. \\
-             0 & \text{ if } l=j+1 \text{ and } k < j+1.
-        \end{cases}
-\end{equation*}
-We take $M(\cdot, n+1) := 0$.
-\begin{equation*}
-    (g_{i,j}(M))(k,l) = \begin{cases}
-        2 & \text{ if } M(k,l) = 4, \\
-        M(k,l) & \text{ otherwise}.
-    \end{cases}
-\end{equation*}
+We call each individual map $f_j$ or $g_{i,j}$ an \emph{update map}. A single
+application shifts one stack or reduces one waiting-time entry when the
+map's conditions hold; otherwise it leaves the state unchanged.
 
-Now define the partial order $\succeq$ on $\mathcal{M}$ by the requirements \eqref{eq:po_req} together with transitivity (i.e. take the appropriate transitive closure).
-\begin{equation} \label{eq:po_req}
-   \text{For $M,N \in \mathcal{M}$, } M \succeq N \text{ if } N = f_j(M) \text{ or } N = g_{i,j}(M).
+Define $M\succeq N$ when $N$ can be obtained from $M$ by a finite
+composition of these update maps, including the empty composition
+(which gives $M=N$).
+This relation is a partial order. Reflexivity and transitivity follow
+from its definition. Whenever an update map changes the state, it
+strictly decreases
+\[
+    P(M)=\sum_{i,j}M(i,j):
+\]
+reducing an entry from $4$ to $2$ decreases the sum by $2$, while shifting
+a stack discards a diagonal entry equal to $2$ or $4$. Consequently, a
+sequence of update maps that changes the state cannot return to its
+starting state. This proves antisymmetry. In particular,
+$0\succeq N$ implies $N=0$.
+
+\begin{lemma}\label{lem:partial_ordering}
+If $M,N\in\mathcal M$ and $M\succeq N$, then
+$\mathcal U(M)\succeq\mathcal U(N)$.
+\end{lemma}
+\begin{proof}
+We first prove the conclusion when $N$ is obtained from $M$ by applying
+one update map: either $N=f_j(M)$ or $N=g_{i,j}(M)$.
+To see why this is enough, the definition of $M\succeq N$ gives a finite
+sequence of valid states
+\[
+ M=M^{(0)},\ M^{(1)},\ldots,\ M^{(r)}=N,
+\]
+where each $M^{(a+1)}$ is obtained from $M^{(a)}$ by one of these update maps.
+Once the conclusion is proved for every such pair, we can apply it to
+each consecutive pair in this sequence to obtain
+\[
+ \mathcal U(M)=\mathcal U(M^{(0)})
+ \succeq\mathcal U(M^{(1)})\succeq\cdots
+ \succeq\mathcal U(M^{(r)})=\mathcal U(N).
+\]
+Transitivity then gives the required conclusion. If no update maps are applied
+($r=0$), then $M=N$ and the conclusion is immediate.
+
+We now check the two types of update map. Write
+$\widehat M=\mathcal U(M)$ and $\widehat N=\mathcal U(N)$.
+The assertion is immediate when the chosen update map leaves $M$ unchanged.
+
+First let $N=g_{i,j}(M)$ with $M(i,j)=4$. If $i>j$, both stacks have
+the same diagonal entry and make the same move. If they stay in column
+$j$, then $\widehat N=g_{i,j}(\widehat M)$. If they move to column
+$j+1$, then $\widehat N=g_{i,j+1}(\widehat M)$. All other stacks make
+the same updates in the two states. If $i=j$ and stack $j$ is blocked,
+then $\widehat N=g_{j,j}(\widehat M)$. If it is unblocked, the stack in
+$M$ waits with its diagonal changed to $2$, whereas the stack in $N$
+moves or exits. Therefore $\widehat N=f_j(\widehat M)$.
+
+Now let $N=f_j(M)$ be a nonidentity shift. In $M$, column $j$ contains
+a stack and its destination is empty. Only the outcomes of that stack
+and the stack originally in column $j-1$, if present, can differ. We
+check the four cases given by the occupancies of columns $j-1$ and
+$j+2$. The following factorisation records the same cases, including
+the two possible diagonal values of each affected stack.
+
+Suppose first that $j<n$, and put
+\[
+    b=M(j,j),\qquad c=M(j+1,j).
+\]
+Let $I$ denote the identity map. Define a map $A$ by this table,
+where ``occupied'' refers to the initial state $M$:
+\[
+\begin{array}{c|c|c|c}
+\text{column }j+2&b&c&A\\ \hline
+\text{occupied}&4&\text{either}&f_j\\
+\text{occupied}&2&\text{either}&I\\
+\text{empty}&4&4&g_{j+1,j+1}\circ f_j\\
+\text{empty}&4&2&f_{j+1}\circ f_j\\
+\text{empty}&2&4&g_{j+1,j+1}\\
+\text{empty}&2&2&f_{j+1}
+\end{array}
+\]
+For $j=n-1$, column $j+2=n+1$ in this table is empty and $f_{j+1}=f_n$
+is the exit map. For $j=n$, instead put
+\[
+ A=\begin{cases}f_n,&M(n,n)=4,\\ I,&M(n,n)=2.\end{cases}
+\]
+Finally, set
+\[
+ H=\begin{cases}
+ I,&j=1\text{ or column }j-1\text{ is empty},\\
+ g_{j-1,j-1},&M(j-1,j-1)=4,\\
+ f_{j-1},&M(j-1,j-1)=2.
+ \end{cases}
+\]
+The required identity in every case is
+\begin{equation}\label{eq:TRM-shift-cases}
+    \widehat N=(H\circ A)(\widehat M).
 \end{equation}
 
-Thus $M \succeq N$ if $N$ is equal to some sequence of compositions of the functions $f_j$ and $g_{i,j}$ on $M$. The following lemma states that the partial order is preserved as the model evolves.
+To verify \eqref{eq:TRM-shift-cases}, first consider the stack originally
+in column $j$. If $j<n$ and column $j+2$ is occupied, the shifted stack
+in $N$ is blocked in column $j+1$. In $M$, it either waits in column
+$j$ when $b=4$, or moves to column $j+1$ when $b=2$. If $j<n$ and
+column $j+2$ is empty, the shifted stack in $N$ either waits with its
+new diagonal reduced from $4$ to $2$ when $c=4$, or moves again or exits
+when $c=2$. For $j=n$, $A$ removes the waiting stack from $\widehat M$
+if $M(n,n)=4$, while for $M(n,n)=2$ it has already exited. In each case,
+applying $A$ to $\widehat M$ gives the same outcome for this stack as in
+$\widehat N$ and leaves column $j$ empty. If $j>1$ and there was a stack in column $j-1$,
+that stack was blocked in $M$, but is unblocked in $N$.
+It therefore either reduces its diagonal from $4$ to $2$, or moves
+into the now empty column $j$. These are exactly the two nonidentity
+choices of $H$. If there is no such stack, $H=I$. All other stacks
+have identical updates, proving \eqref{eq:TRM-shift-cases}. Both $A$
+and $H$ are compositions of the update maps defined above,
+with the identity represented by an empty composition. Thus
+$\widehat N$ can be obtained from $\widehat M$ by a finite sequence of
+these update maps, so $\widehat M\succeq\widehat N$ by definition.
+\end{proof}
 
+Let $M^*$ be the valid state whose entries on and below the diagonal
+are all $4$. This is the greatest element under $\succeq$.
 
+For $M\in\mathcal M$, let
+\[
+ T_M=\inf\{t\in2\mathbb Z_{\geq0}:M_0=M,\ M_t=0\},
+\]
+with the convention $\inf\varnothing=\infty$. In particular, $T_0=0$.
 
-\begin{lemma} \label{lem:partial_ordering}
-    Choose $M_t, N_t \in A$ such that $M_t \succeq N_t$. Then $M_{t+2} \succeq N_{t+2}$.
+\begin{lemma}\label{lem:maximal_time}
+The all-$4$ state satisfies $T_{M^*}=8n-4$.
 \end{lemma}
 
+We first record the corresponding one-dimensional BML calculation.
+\begin{lemma}\label{lem:bml_top_row}
+The BML model on $[n]\times\{0\}$, initially filled with East cars,
+clears in $4n-2$ time steps.
+\end{lemma}
 \begin{proof}
-    If $M_t = N_t$ then the conclusion is trivial. Suppose $M_t \neq N_t$. First consider the case where $N_t = g_{i,j}(M_t)$. By assumption $M_t(i,j)=4$ and $N_t(i,j)=2$. First notice that $M_{t+2}(\cdot, k) = N_{t+2}(\cdot, k)$ for $k\leq j-1$ and $k \geq j+1$ since in $2$ time steps a stack cannot alter the stack's movement located further than $1$ site away from it and if a stack is located in column $j-1$ then it is blocked in $N_t$ and in $M_t$. Suppose $i \neq j$. Either column $j$ did not move right one step from $N_t$ to $N_{t+2}$ and $M_t$ to $M_{t+2}$ in which case $N_{t+2} = g_{i,j}(M_{t+2})$ or column $j$ did move right one step from $N_t$ to $N_{t+2}$ and $M_t$ to $M_{t+2}$ in which case $N_{t+2} = g_{i,j+1}(M_{t+2})$. Suppose $i=j$ then if the stack in column $j$ is not blocked, column $j$ did not move right from $M_t$ to $M_{t+2}$ but did move right from $N_t$ to $N_{t+2}$. In this case $N_{t+2} = f_j(M_{t+2})$. If the stack is blocked then $N_{t+2} = g_{i,j}(M_{t+2})$. Thus $M_{t+2} \succeq N_{t+2}$
-
-    Second consider the case where $N_t = f_j(M_t)$. Notice that $M_{t+2}(\cdot, k) = N_{t+2}(\cdot, k)$ for $k\leq j-1$ and $k \geq j+2$ since in $2$ time steps a stack cannot alter the other stacks located further than $1$ site away from it. By assumption column $j$ is identically $0$ in $N_t$ and column $j+1$ is identically $0$ in $M_t$. There are $4$ cases to check.
-
-    \begin{itemize}
-        \item   First suppose column $j-1$ and $j+2$ are identically $0$ in both $N_t$ and $M_t$. If $M_t(j,j)=4$ and $N_t(j+1,j+1)=4$ then $N_{t+2} = (g_{j+1,j+1} \circ f_j )(M_{t+2})$. If $M_t(j,j)=4$ and $N_t(j+1,j+1)=2$ then $N_{t+2} = (f_{j+2} \circ f_j)(M_{t+2})$. If $M_t(j,j)=2$ and $N_t(j+1,j+1)=4$ then $N_{t+2} = g_{j+1,j+1}(M_{t+2})$. If $M_t(j,j)=2$ and $N_t(j+1,j+1)=2$ then $N_{t+2} = f_{j+1}(M_{t+2})$.
-        \item     Second suppose column $j+2$ is not identically $0$ but $j-1$ is identically $0$ in both $N_t$ and $M_t$. Then column $N_t(\cdot, j+1) = N_{t+2}(\cdot, j+1)$. Thus if $M_t(j,j)=4$ then $N_{t+2} = f_j(M_{t+2})$ and if $M_t(j,j)=2$ then $N_{t+2} = M_{t+2}$.
-        \item Third suppose column $j-1$ is not identically $0$ and column $j+2$ is identically $0$. Consider $M_t(j-1,j-1) = 4$.
-        If $M_t(j,j) = 4$ and $N_t(j+1,j+1) = 4$ then $N_{t+2} = (g_{j-1,j-1} \circ g_{j+1,j+1} \circ f_j)(M_{t+2})$.
-        If $M_t(j,j) = 4$ and $N_t(j+1,j+1) = 2$ then $N_{t+2} = (g_{j-1,j-1} \circ f_{j+1} \circ f_j) (M_{t+2})$.
-        If $M_t(j,j) = 2$ and $N_t(j+1,j+1) = 4$  then $N_{t+2} = (g_{j-1,j-1} \circ g_{j+1,j+1} \circ f_j) (M_{t+2})$.
-        If $M_t(j,j) = 2$ and $N_t(j+1,j+1) = 2$ then $N_{t+2} = (g_{j-1,j-1} \circ f_{j+1})(M_{t+2})$.
-
-        Now consider $M_t(j-1,j-1) = 2$. If $M_t(j,j) = 4$ and $N_t(j+1,j+1) = 4$ then $N_{t+2} = (f_{j-1} \circ g_{j+1,j+1} \circ f_j)(M_{t+2})$.
-        If $M_t(j,j) = 4$ and $N_t(j+1,j+1) = 2$ then $N_{t+2} = (f_{j-1} \circ f_{j+1} \circ f_j)(M_{t+2})$.
-        If $M_t(j,j) = 2$ and $N_t(j+1,j+1) = 4$ then $N_{t+2} = (f_{j-1} \circ g_{j+1,j+1})(M_t)$. If $M_t(j,j) = 2$ and $N_t(j+1,j+1) = 2$ then $N_{t+2} = (f_{j-1} \circ f_{j+1}(M_t)$.
-
-        \item Fourth suppose both columns $j-1$ and $j+2$ are not identically $0$. If $M_t(j,j) = 2$ then $M_{t+2} = N_{t+2}$ and if $M_t(j,j) = 4$ then $N_{t+2} = f_j(M_{t+2})$.
-    \end{itemize}
-    Hence $M_{t+2} \succeq N_{t+2}$. The conclusion follows by considering arbitrary compositions of $f_j$ and $g_{i,k}$.
+Label the cars from right to left by $q=1,\ldots,n$ and number East
+updates by $1,2,\ldots$. Car $q$ first moves on East update $q$ and then
+moves on every East update until it exits. This follows by induction:
+after the preceding car first moves, it continues to move and leaves
+one empty site between itself and its follower. Car $q$ must make $q$
+moves to exit, so its exit update is $2q-1$. The last car exits at
+time $2(2n-1)=4n-2$.
 \end{proof}
 
-Now for $M \in \mathcal{M}$, let $$T_M = \inf\{ t>0: M_0 = M \text{ and } M_t=0\}$$ be the time it takes for the model to clear, starting with initial configuration $M$. We note the clearing time of the following extremal state.
-
-\begin{lemma} \label{lem:maximal_time}
-    Let $M$ be the state of the TRM where each element on and below the diagonal is a $4$. Then $T_{M} = 8n-4$
-\end{lemma}
-
-
-We will prove this by referring back to the BML model. This result will be useful later also.
-
-\begin{lemma} \label{lem:bml_top_row}
-    The BML model on the row $[n] \times \{0\}$ with initial configuration completely filled with $\ra$ clears in $4n-2$ time steps.
-\end{lemma}
-
-\begin{proof}[Proof of Lemma \ref{lem:bml_top_row}]
-    By induction one can verify that the left-most East car becomes unblocked at time $2(n-1)$ and remains unblocked until it leaves $[n] \times \{0\}$. Therefore the left-most East car leaves at time $4n-2$.
-\end{proof}
-
-\begin{proof} [Proof of Lemma \ref{lem:maximal_time}]
-    Note that the configuration $M$ has a similar evolution as the configuration in Lemma \ref{lem:bml_top_row} where each stack in the TRM models an East car. In the TRM configuration the stacks only move on time steps which are a multiple of $4$ (as opposed to multiples of $2$ in the BML model). As a result $T_M = 2(4n-2) = 8n-4$.
+\begin{proof}[Proof of Lemma~\ref{lem:maximal_time}]
+At each time $4r$, every nonzero entry of the all-$4$ evolution is $4$.
+During the update to time $4r+2$, unblocked stacks reduce their diagonals
+to $2$, and no stack changes position. During the update to time
+$4r+4$, precisely those stacks move, and their new diagonals, if any,
+are again $4$. Blocked stacks remain unchanged. Thus, on the times
+$0,4,8,\ldots$, the stack positions follow exactly the one-directional
+car evolution in Lemma~\ref{lem:bml_top_row}, with one East update per
+four time steps instead of two. The last exit occurs after $2n-1$
+such updates, giving $T_{M^*}=4(2n-1)=8n-4$.
 \end{proof}
 
 \begin{lemma}\label{lem:TRM_bound}
-    If $M \succeq N$ then $T_M \geq T_N$. Moreover,
-    $$\max_{M \in \mathcal{M}} T_M = 8n-4.$$
+If $M\succeq N$, then $T_M\geq T_N$. Moreover,
+\[
+    \max_{M\in\mathcal M}T_M=8n-4.
+\]
 \end{lemma}
 \begin{proof}
-    By Lemma 2.1, the relation $M_t \succeq N_t$ holds for all $t$. This means at the time step just before $N$ clears, its state is non-zero, which implies $M$'s state must also be non-zero, and therefore $T_M \ge T_N$. The unique greatest element of $\mathcal{M}$ under $\succeq$ is the lower triangular matrix with all entries on or below the diagonal equal to $4$. This configuration will have the maximal time to clear and by Lemma \ref{lem:maximal_time} the time it takes this configuration to clear is $8n-4$ time steps.
+Lemma~\ref{lem:partial_ordering} preserves the order at every even time.
+Since $0\succeq N$ implies $N=0$, the state started from $N$ is empty
+whenever the state started from $M$ is empty. Hence $T_N\leq T_M$.
+Every state is below $M^*$, whose clearing time is $8n-4$ by
+Lemma~\ref{lem:maximal_time}; this also proves finiteness of every
+$T_M$. The all-$4$ state attains the bound.
 \end{proof}
-
 
 \begin{proof} [Proof of Theorem \ref{thm:upper_bound}]
     First notice an East car in column $j$ of the top row of the BML model can be blocked at most once by North cars before it moves to column $j+1$ (because car movements are restricted to odd and even time steps). At any even time at which an East car is not blocked by another East car to its right it will move in $2$ or $4$ time steps. Therefore, there exists some initial state for the TRM such that the resulting movements of stacks exactly mimics the movements of East cars in the top row of the BML model. Hence, by Lemma \ref{lem:TRM_bound} the top row of the BML model is cleared of East cars by time $8n-4$. By a similiar argument, the BML model is cleared of North cars in the rightmost column by time $8n-3$. At time $8n-4$, we are left with a configuration of the BML model on an $n-1 $-by-$ n-1$ grid with only unblocked North cars above it and unblocked East cars to its right. Hence, by Proposition \ref{prop:cars_leaving_dont_matter}, from time $t=8n-4$, the model evolves from a configuration supported on $ [n-1]^2$. The East cars in the second row leave before time $(8n-4) + (8(n-1)-4)+2$. (Notice $2$ is added to this time since once cleared of the $n-1 $-by-$ n-1$ grid, they still have to leave from column $n$ but since all columns to the right are clear of North cars it is freely moving so moves every $2$ time steps). Iteratively applying this argument we see that the East cars in the unlocked $[k-1]^2$ grid leave in $8k-4 + 2(n-k)$ time steps. Hence, summing each of these times gives us,
@@ -267,9 +419,6 @@ In this section we consider the periodic configurations which serve as our prima
 We performed simulations of all sequences $(W_{nk})$ for $k \in \{2,3\}$ with no empty spaces. We further perform simulations of the sequences $(W_{nk+i})$ for $k = 3$ and $i \in \{0,1,2\}$ for a select few configurations. In each of these cases it appears that it is easy to separate between linear and superlinear. Furthermore, in each of the linear cases we provide a conjectured linear term for the affine function and in each of the superlinear cases we provide a conjectured power law growth rate with the specified power. For more details, see Appendix \ref{app:A}. In the remainder of this section we deal with some representative examples from the exhaustive analysis.
 
 In the linear cases the clearing times are equal to an affine function plus a periodic function. Furthermore, it seems there is a way to explicitly describe the space-time evolution of the linear periodic sequences. In each case of these sequences, we believe that it is straightforward to prove the space-time evolution and their respective clearing time, albeit laborious. We provide a non-trivial example of this in the $2$-periodic case. In general these evolutions become laborious to explicitly describe but in principle all linear configurations seem to have this property. In the superlinear case, the clearing times seem to grow like a non-trivial power of $n$.
-
-
-
 
 \subsection{Linear configurations} \label{sec:linearconfigs}
 Here we address space time evolution of the linear configurations focusing on a few illustrative examples.
@@ -285,69 +434,264 @@ We begin with the trivial periodic configuration in which the $k $-by-$ k$ tile 
 
 We next discuss a particular a $2 $-by-$ 2$ periodic configuration for which we will explicitly describe the space-time evolution.  We further demonstrate a description of the space-time evolution which could be used to show that this configuration sequence is linear. The case checking needed to prove this space-time evolution is laborious even for this simple case, and likely proves to be infeasabile in general.
 
-\begin{theorem}
-    Let $W_n$ be the $2$-periodic configuration with $2 $-by-$ 2$ tiles of the form
-
-
-\begin{equation} \label{eq:lineartiling}
+\begin{theorem}\label{thm:alternating-columns}
+Let $W_n$ be the restriction to $[n]^2$ of the periodic configuration with tile
+\begin{equation}\label{eq:lineartiling}
     \begin{split}
-        \begin{tikzpicture}[scale=1.1]
+    \begin{tikzpicture}[scale=1.1]
         \rc{0}{0} \uc{0.6}{0}
         \rc{0}{-0.6} \uc{0.6}{-0.6}
     \end{tikzpicture}.
     \end{split}
 \end{equation}
+Thus every odd-numbered column contains East cars and every even-numbered
+column contains North cars initially, with columns numbered from the left.
+For every integer $n\geq1$,
+the complete evolution is the function $F_n$ below, whose pieces agree with
+periodic patterns on regions bounded by affine inequalities. In particular,
+$T(W_n,n)=6n-4$.
 
-
-     Then $$T(W_n,n)=6n-4.$$
+Use Cartesian coordinates $(x,y)\in[n]^2$, with $x$ increasing from left
+to right and $y$ from bottom to top, so that $(1,1)$ is the bottom-left
+site. For integer $t\geq0$, put
+\[
+ q=\left\lfloor\frac{t-1}{2}\right\rfloor,
+ \qquad r=\left\lfloor\frac t2\right\rfloor,
+ \qquad b=r-2n+3.
+\]
+Define $F_n(x,y,t)$ by the following rules.
+\begin{enumerate}
+\item If $y\geq b$ and $4y+t\leq4n-2$, set $F_n(x,y,t)=\ra$ when
+$x$ is odd and $F_n(x,y,t)=\ua$ when $x$ is even.
+\item If $y\geq b$ and $4y+t\geq4n-1$, set $F_n(x,y,t)=\ua$ when
+$x$ is even and $y\equiv n+q+1\pmod3$. Otherwise set $F_n(x,y,t)=\ra$
+when
+\[
+ 3x-4y\geq t-4n+1
+\]
+and either $x$ is even with $y\equiv n+r-1\pmod3$, or $x$ is odd with
+$y\not\equiv n+r-1\pmod3$.
+\item If $y<b$, set $F_n(x,y,t)=\ra$ when
+\[
+ x-y>r-2n+1,\qquad x-y-r\equiv0\pmod2.
+\]
+\end{enumerate}
+All remaining sites are empty. For odd $n$, impose the additional boundary
+rule
+\begin{equation}\label{eq:alternating-boundary}
+ F_n(n,y,t)=0\quad\text{if}\quad
+ r\geq1,\quad y\geq b,\quad
+ \bigl(r<2n-2y+1\ \text{or}\ y\equiv n+r\pmod3\bigr).
+\end{equation}
+This rule takes precedence over the East-car assignments above.
+After fixing the parity of $t$, all the inequalities defining the pieces
+are affine in $x,y,t,n$; within each piece, the state is determined by
+the displayed congruences, giving a restriction of a pattern with periods
+$2$, $6$ and $12$ in $x$, $y$ and $t$, respectively.
+Thus the rules describe the periodic patterns
+and their moving boundaries throughout the evolution, for both parities
+of $n$.
 \end{theorem}
 
+\begin{proof}
+In these coordinates, a North move increases $y$ and an East move increases $x$.
+Call the North update at time $2r-1$ and the East update at time $2r$
+\emph{cycle $r$}. For $n=1$, the displayed rules give a single East car at
+times $0$ and $1$, and the empty state thereafter, as required.
+Assume henceforth that $n\geq2$.
 
-For the explicit evolution, use matrix indices $i,j\in[n]$ increasing from top to bottom and left to right, respectively. Put $c=j-1$, $q=\lfloor(t-1)/2\rfloor$, $r=\lfloor t/2\rfloor$, and
+We verify the stated function by tracking individual cars. Put
 \[
- b= n-\left\lfloor\frac{t-4n+4}{2}\right\rfloor.
+    S_y=2n-2y+1,\qquad C_y=2n+y-2,\qquad a_y=y-1,
 \]
-For even $n$, the state $F_n(i,j,t)$ is specified by the following rules. If $i\le b$ and $4i\ge t+6$, it is an East car when $c$ is even and a North car when $c$ is odd. If $i\le b$ and $4i\le t+5$, it is a North car when $c$ is odd and $i+q\equiv0\pmod3$; otherwise it is an East car when
+and, for integers $r\geq0$, define
+\begin{equation}\label{eq:alternating-displacement}
+d_y(r)=
+\begin{cases}
+0, & 0\leq r<S_y,\\[2pt]
+\displaystyle\left\lceil\frac{2(r-S_y+1)}{3}\right\rceil,
+    & S_y\leq r<C_y,\\[6pt]
+r-2n+y+1, & r\geq C_y.
+\end{cases}
+\end{equation}
+Notice that $C_y=S_y+3a_y$. Equivalently, the increments of $d_y$ are
+zero before cycle $S_y$; they are $1,1,0$ on the successive triples
 \[
- 4i+3(c-1)\ge t-1
+    S_y+3h,\quad S_y+3h+1,\quad S_y+3h+2,
+    \qquad 0\leq h<a_y;
 \]
-and either $c$ is odd with $i+r\equiv2\pmod3$, or $c$ is even with $i+r\not\equiv2\pmod3$. Finally, if $i>b$, it is an East car when
-\[
- i+c+1>n+\left\lfloor\frac{t-4n+4}{2}\right\rfloor,
- \qquad i+c-r\equiv0\pmod2.
-\]
-All remaining sites are empty. The companion code evaluates this formula and checks it against the directional update rules.
+and they are $1$ on every cycle from $C_y$ onward.
 
-This function is shown in Figure \ref{fig:F_n} for different $t$.
+We claim the following descriptions hold simultaneously.
+\begin{enumerate}
+\item A North car initially in row $\ell$ first moves on cycle $S_\ell$
+and then moves on every North update until it exits. Its row after the
+North update of cycle $r$ is
+\begin{equation}\label{eq:alternating-north-position}
+    \ell+\max\{0,r-S_\ell+1\},
+\end{equation}
+as long as this number is at most $n$. In particular, it exits on cycle
+$3n-3\ell+1$, at time $6n-6\ell+1$.
+\item An East car initially in row $y$ and odd column $p$ has column
+$p+d_y(r)$ after cycle $r$, as long as it has not exited. An East car
+at column $n$ leaves at the next East update, including when the common
+displacement is unchanged. More explicitly, its exit cycle is
+\begin{equation}\label{eq:alternating-east-exit}
+    1+\min\{r\geq0:p+d_y(r)\geq n\}.
+\end{equation}
+\end{enumerate}
+These formulas also specify the intermediate odd times: North cars have
+their cycle-$r$ positions at time $2r-1$, whereas East cars still have
+their cycle-$(r-1)$ positions.
+
+Here is a simultaneous induction on the cycles verifying both claims.
+They give the required initial configuration at cycle $0$. Suppose they
+hold through cycle $r-1$.
+
+First consider a North car initially in row $\ell<n$ before its proposed
+first move. Until and including cycle $S_{\ell+1}=2n-2\ell-1$, its destination
+is occupied before the North update by the North car initially just above
+it. That preceding car moves on cycle $S_{\ell+1}$. The East update of
+the same cycle moves the surviving East cars in row $\ell+1$ from odd
+to even columns, filling every even column of that row. In particular,
+on cycle $2n-2\ell$
+the North car is again blocked. The subsequent East update moves those
+East cars to odd columns or out of the grid, freeing its destination
+for cycle $S_\ell$.
+The North car in the top row exits immediately on cycle $S_n=1$.
+
+For a proposed move of the car initially in row $\ell$ into row $k\leq n$,
+the proposed North-update cycle is
+\[
+    r=2n+k-3\ell,\qquad \ell<k\leq n.
+\]
+The preceding car in the same column, if it has not exited, is three
+rows ahead before this update, by \eqref{eq:alternating-north-position}.
+Thus the destination contains no North car. Write $h=k-\ell-1$.
+Then $0\leq h<a_k$ and
+\[
+    r-1=S_k+3h+1,\qquad d_k(r-1)=2h+2.
+\]
+Consequently all East cars still in row $k$ occupy odd columns before
+this North update, and cannot block the move in an even column. This
+verifies every proposed North move; a move out of the top row has an
+empty destination outside the grid. It also verifies that no earlier
+first move is possible. The first claim therefore holds on cycle $r$.
+
+We next check the East update. All surviving East cars in a row have
+the same displacement before the update, so their column indices differ
+by at least two. They cannot block one another. Before cycle $S_y$, the
+original North car in row $y$ still occupies every even column, and an
+East car not at the right boundary cannot move. For $0\leq h<a_y$:
+\begin{itemize}
+\item On cycle $S_y+3h$, the North car initially in row $y-h$ has just
+left row $y$. No following North car can enter that row in the same
+update. Its even columns are therefore empty, and the East cars move
+from odd to even columns.
+\item On cycle $S_y+3h+1$, those East cars move from even to odd columns;
+there are no North cars in odd columns.
+\item On cycle $S_y+3h+2$, the North car initially in row $y-h-1$ has
+just entered row $y$, occupying its even columns. The East cars in odd
+columns are blocked, except that a car already at column $n$ exits.
+\end{itemize}
+On cycle $C_y$, the North car initially in the bottom row leaves row
+$y$; no North car subsequently returns to that row. The remaining East
+cars therefore move at every East update from cycle $C_y$ onward.
+This is exactly the increment schedule in
+\eqref{eq:alternating-displacement}. Removing a boundary car does not
+affect this argument: it creates no additional East blocker, and when
+an interior move is blocked its target contains a North car rather
+than an East car. This proves the second claim and completes the
+simultaneous induction.
+
+We now recover the regional formula for $F_n$ from these trajectories.
+Write $s=\lfloor(t+1)/2\rfloor=q+1$. At time $t$, a site $(x,y)$
+contains a North car precisely when $x$ is even and either
+\[
+ s\leq2n-2y,
+\]
+or
+\[
+ 2n-2y+3\leq s\leq2n+y-3,\qquad y\equiv n+s\pmod3.
+\]
+The first case is the North car initially in row $y$, before its first
+move. In the second case its initial row is $(2n+y-s)/3$, by
+\eqref{eq:alternating-north-position}. These are exactly the North-car
+assignments in the first two regions above.
+
+For $x<n$, the site contains an East car precisely when
+\[
+ x>d_y(r),\qquad x-d_y(r)\equiv1\pmod2.
+\]
+Indeed, $x-d_y(r)$ is its initial column, which must be positive and odd.
+When $r<C_y$, substitution of the middle or initial part of
+\eqref{eq:alternating-displacement}, with the three possible values of
+$r-S_y$ modulo $3$, gives the East-car assignments in the first two
+regions. When $r\geq C_y$, substitution gives
+\[
+ x>r-2n+y+1,\qquad x-y-r\equiv0\pmod2,
+\]
+which is the third region, since $r\geq C_y$ is equivalent to $y<b$.
+At $x=n$, the same test applies only if $r=0$ or
+$d_y(r)>d_y(r-1)$: a car that has already reached the boundary leaves on
+the next East update, even when the interior cars wait. The unchanged
+displacement occurs exactly when $r<S_y$, or when $S_y\leq r<C_y$ and
+$y\equiv n+r\pmod3$. In both cases $d_y(r)$ is even, so the possible
+boundary car has odd initial column only when $n$ is odd. This gives
+exactly \eqref{eq:alternating-boundary}. Hence the stated $F_n$ agrees
+with the evolution at every site and time.
+
+It remains to determine the last exit. All North cars have left by
+time $6n-5$. At cycle $r_*=3n-2$, we have $r_*\geq C_y$ for every row
+and
+\[
+    d_y(r_*)=n+y-1\geq n.
+\]
+No East car can remain, since even the car initially at column $1$
+would then have column index greater than $n$. Conversely, in the
+bottom row $y=1$, $C_1=2n-1$ and
+\[
+    d_1(r_*-1)=n-1.
+\]
+Thus its leftmost initial East car has just reached column $n$ after
+cycle $r_*-1$; it remains there through the next North update and exits
+on the East update of cycle $r_*$. The clearing time is therefore
+$2r_*=6n-4$.
+\end{proof}
+
+Figure~\ref{fig:F_n} illustrates the periodic regions and their affine
+boundaries in $F_n$.
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{../figures/paper/figure03.pdf}
-\caption{The explicit evolution $F_{50}$ at times $t=150$ (left) and $t=220$ (right), with North updates first and the column phase in \eqref{eq:lineartiling}.}
+\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{figures/figure03.pdf}
+\caption{The explicit evolution $F_{50}$ at times $t=150$ (left) and
+$t=220$ (right), with the column phase in \eqref{eq:lineartiling}.}
 \label{fig:F_n}
 \end{figure}
-It can be checked that $F_n$ satisfies the update rules of the BML model and similiary $F_n(i,j,0)$ describes the initial configuration constructed by the tiling \eqref{eq:lineartiling}. We do not provide the laborious checking that the update rules are satisfied. Nevertheless, it completely describes the evolution of the model from the initial configuration in the statement. Utilising this we see that $F_n(i,j,6n-4) = 0$ for all $i,j$, whilst $F_n(n,n,6n-5) = \ra$. Hence the configuration clears in $6n-4$ time steps.
-
 
 In principle every conjectured linear configuration sequence from the simulations could be shown to behave in a similiarly explicit way. Observations of the clearing of the conjectured linear periodic configurations show that each time step could in principle be described by a piece-wise function on periodic regions separated by linear boundaries. This would analytically describe the entire evolution of the $n $-by-$ n$ grid. Unfortunately for large periodic configurations, there are many different regions and it becomes difficult to concisely write down descriptions of the evolution. An example of such a configuration is shown in Figure \ref{fig:lots_of_regions}. All $2$-periodic configurations exhibit these periodic regions in clearing and we conjecture that all $2$-periodic configurations clear in linear time.
 
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{../figures/paper/figure04.pdf}
-\caption{North-first evolution of tile $333131313$ at $n=498$ and $t=996$, exhibiting periodic regions separated by affine boundaries.}
+\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{figures/figure04.pdf}
+\caption{Evolution of tile $333131313$ at $n=498$ and $t=996$, exhibiting periodic regions separated by affine boundaries.}
 \label{fig:lots_of_regions}
 \end{figure}
-\subsection{Superlinear configurations.}
- We start to see non-predictable behaviour in the $k$-periodic configurations for $k \geq 3$. As shown in Figure \ref{fig:periodic_chaos} we get `chaotic' clearing conditions arising from a completely periodic initial configuration.
+\subsection{Candidate superlinear configurations}
+Some periodic initial states develop spatial patterns that appear less
+regular than the preceding examples. We use ``irregular'' descriptively,
+without asserting a formal property of dynamical chaos. Figure~\ref{fig:periodic_chaos}
+illustrates such clearing from a periodic initial configuration.
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{../figures/paper/figure05.pdf}
-\caption{North-first evolution of tile \eqref{eq:reorganisation} at $n=999$ and $t=6000$, illustrating aperiodic clearing.}
+\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{figures/figure05.pdf}
+\caption{Evolution of tile \eqref{eq:reorganisation} at $n=999$ and $t=6000$, illustrating aperiodic clearing.}
 \label{fig:periodic_chaos}
 \end{figure}
 
 All configurations that exhibit this non piece-wise periodic clearing seem to have clearing times which grow like a superlinear function. The chaotic region of clearing appears to form new jams that were not already present in the initial configuration and thus as $n$ increases the number of jams seem to increase superlinearly in $n$. This could explain the asymptotically superlinear clearing time of these configurations. In Section \ref{sec:heuristic} we give specific examples of structures in the superlinear configuration sequences which appear to create extra jams.
 
-An exploratory survey of $3$-periodic configurations identified candidates with large estimated powers in their clearing times. The figures below use the uniform North-first convention; the original survey estimates are retained separately in Appendix~\ref{app:A}. The selected case was the periodic configuration with tiling
+An exploratory survey of $3$-periodic configurations identified candidates with large estimated powers in their clearing times. The original survey estimates are retained separately in Appendix~\ref{app:A}. The selected case was the periodic configuration with tiling
 
 \begin{equation} \label{eq:worst3periodic}
 \begin{split}
@@ -358,15 +702,19 @@ An exploratory survey of $3$-periodic configurations identified candidates with 
     \end{tikzpicture}
     \end{split}
 \end{equation}
-For this case, Figure~\ref{fig:clearing_times} uses North-first simulations up to $n=\FigureSixMaxN$. The repository provides an opt-in sweep up to $n=10000$; the numerical ranges and regression coefficients in the figure caption are read directly from the generated results.
+We simulated this configuration at \FigureSixCount{} grid sizes from
+$n=3$ to $n=\FigureSixMaxN$; the clearing times are shown in
+Figure~\ref{fig:clearing_times}.
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{../figures/paper/figure06.pdf}
-\caption{Log-log clearing times for tile \eqref{eq:worst3periodic} under North-first updates, using \FigureSixCount{} observations up to $n=\FigureSixMaxN$. Least-squares fit: $\log_2 T(W_n,n)=\FigureSixPower\log_2 n+\FigureSixIntercept$.}
+\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{figures/figure06.pdf}
+\caption{Log-log clearing times for tile \eqref{eq:worst3periodic}, using \FigureSixCount{} observations up to $n=\FigureSixMaxN$. Least-squares fit: $\log_2 T(W_n,n)=\FigureSixPower\log_2 n+\FigureSixIntercept$.}
 \label{fig:clearing_times}
 \end{figure}
-\subsection{Asymptotic behaviour along sub-sequences} \label{sec:analytical}
-We provide here a set of surprising examples which demonstrate difficulties in analysing the model. We conjecture that many sequences of periodic configurations are not monotonic in $n$ and some configurations exhibit linear and non-linear behaviour along different sub-sequences of the periodic configuration.
+\subsection{Dependence on \texorpdfstring{$n\bmod3$}{n mod 3}}\label{sec:analytical}
+Restricting the same periodic configuration to different grid sizes can
+change the observed clearing time substantially. We examine one explicit
+example and formulate conjectures depending on $n\bmod3$.
 
 One of the most striking examples of this behaviour is observed in the periodic configuration with tiling 
 \begin{equation}\label{eq:interesting_tiling2}  
@@ -378,17 +726,37 @@ One of the most striking examples of this behaviour is observed in the periodic 
     \end{tikzpicture}
     \end{split}
 \end{equation}
-For $n \equiv 2 \mod 3$ the configuration sequence exhibits superlinear clearing times and for all other $n$ the sequence of configurations exhibits linear clearing time. The simulation data for this is summarised in Figure \ref{fig:log_log_graph_subsequences}. Moreover, observing the evolution of the model demonstrates a striking difference in the clearing behaviour of the configurations as seen in Figure \ref{fig:lin_and_non_linear_behaviour}. This explicitly demonstrates the non-monotonicity of the clearing time in $n$ since even increasing $n$ by $1$ can increase the clearing time by a factor of $n^a$ for $a\in (0,1)$.
+The sampled clearing times show a strong dependence on $n\bmod3$.
+For $n\equiv2\pmod3$, the retained observations have fitted slope
+$\FigureSevenSuperlinearPower$ on logarithmic coordinates. For the other
+values of $n\bmod3$, the supplied measurements satisfy the exact observed
+relations
+\[
+T(W_n,n)=
+\begin{cases}
+(22n-30)/3,& n\equiv0\pmod3,\\
+(22n-28)/3,& n\equiv1\pmod3,\ n\ge4.
+\end{cases}
+\]
+We conjecture that the displayed affine formulas hold at every size
+satisfying their stated conditions.
+
+The figures suggest superlinear growth when $n\bmod3=2$ and linear bounds
+otherwise. The asymptotic distinction remains conjectural.
+A finite comparison already shows the sensitivity to deletion:
+the supplied $n=600$ and $n=599$ configurations have clearing times $4390$
+and $7207$, respectively.
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{../figures/paper/figure07.pdf}
-\caption{North-first clearing times for tile \eqref{eq:interesting_tiling2}, using \FigureSevenCount{} observations up to $n=\FigureSevenMaxN$. The fitted lines are $\log_2 T=\FigureSevenSuperlinearPower\log_2 n+\FigureSevenSuperlinearIntercept$ for $n\equiv2\pmod3$, and $\log_2 T=\FigureSevenOtherPower\log_2 n+\FigureSevenOtherIntercept$ otherwise.}
+\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{figures/figure07.pdf}
+\caption{Clearing times for tile \eqref{eq:interesting_tiling2}, using \FigureSevenCount{} observations up to $n=\FigureSevenMaxN$. The fitted lines are $\log_2 T=\FigureSevenSuperlinearPower\log_2 n+\FigureSevenSuperlinearIntercept$ for $n\equiv2\pmod3$, and $\log_2 T=\FigureSevenOtherPower\log_2 n+\FigureSevenOtherIntercept$ otherwise.}
 \label{fig:log_log_graph_subsequences}
 \end{figure}
 \section{Heuristic Analysis} \label{sec:heuristic}
 Here we give a brief overview of the self organising phenomona arising in this model for specific periodic configurations. In particular we give situations in which the number of jams  appears to increase more than linearly with $n$. Ideally, one would be able to construct an initial configuration which forces this behaviour in an analysable way but this has proven to be incredibly difficult.
 \subsection{Fault-lines}
-Certain periodic configurations exhibit a phenomena which we call fault-lines. In observation of the clearing, a fault line can be recognised as a diagonal line of mostly empty space dividing the blocked region. This can be observed in the periodic configuration with the tiling
+We call a diagonal corridor of mostly vacant sites separating blocked
+regions a \emph{fault-line}. An example occurs in the configuration with tile
 \begin{equation} \label{eq:faultlines}
 \begin{split}
     \begin{tikzpicture}[scale=1.1]
@@ -402,8 +770,8 @@ Certain periodic configurations exhibit a phenomena which we call fault-lines. I
 as shown in Figure \ref{fig:fault_lines}.
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{../figures/paper/figure08.pdf}
-\caption{North-first evolution of tile \eqref{eq:faultlines} at $n=1000$, $t=5000$. Left: the full grid. Right: the fault-line detail selected by the figure recipe.}
+\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{figures/figure08.pdf}
+\caption{Evolution of tile \eqref{eq:faultlines} at $n=1000$, $t=5000$. Left: the full grid. Right: the fault-line detail selected by the figure recipe.}
 \label{fig:fault_lines}
 \end{figure}
 Moreover, as $n$ increases the number of fault-lines increase. This becomes extremely noticeable for $n \geq 5000$ (images of which have not been included due to resolution limitations). A fault-line forms when the initial periodic configuration shifts up (or right) by one row (or column). As a result when a car moves for the first time it immediately gets blocked in another large blocked region. The size of these blocked regions increase linearly with $n$ and since the number of fault lines increases with $n$ this could explain the superlinear behaviour of the clearing time for these configurations. This behaviour is common in the periodic configurations.
@@ -411,8 +779,8 @@ Moreover, as $n$ increases the number of fault-lines increase. This becomes extr
 A highway forms in a similar way to a fault-line.  In observation of the clearing, a highway can be recognised as a horizontal (or vertical) width $1$ line of mostly empty space with a line of East (or North) cars below it (or to the left of it). The line of East (or North) cars serve to block any cars which could disrupt cars in the mostly empty line. Therefore, cars in this line move at maximal velocity through the blocked region. This can be seen in Figure \ref{fig:highway}.
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{../figures/paper/figure09.pdf}
-\caption{Highway detail in the North-first evolution of tile \eqref{eq:faultlines} at $n=1000$, $t=5000$.}
+\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{figures/figure09.pdf}
+\caption{Highway detail in the evolution of tile \eqref{eq:faultlines} at $n=1000$, $t=5000$.}
 \label{fig:highway}
 \end{figure}
 The highways appear to increase the clearing time since regions near the right (and top) edge of the configuration which might ordinarily clear quickly are blocked by cars being moved by the highways. Moreover, as seen in Figure \ref{fig:fault_lines}, the highways tend to lead into fault-lines and vice-versa. Similar to the fault lines, as $n$ increases the number of highways increase. The proliferation of these fault-lines as $n$ increases provides a plausible mechanism for the observed superlinear clearing times.
@@ -431,51 +799,39 @@ Reorganisation is the phenomena in which the blocked region containing the initi
 as shown in Figure \ref{fig:reorganisation}. A zoomed in image of the boundary between the $2$ regions can be seen in Figure \ref{fig:reorganisation_zoomed}.
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{../figures/paper/figure10.pdf}
-\caption{Reorganisation of tile \eqref{eq:reorganisation} for $n=999$ at $t=2000,4000,6000,8000$, with North updates first.}
+\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{figures/figure10.pdf}
+\caption{Reorganisation of tile \eqref{eq:reorganisation} for $n=999$ at $t=2000,4000,6000,8000$.}
 \label{fig:reorganisation}
 \end{figure}
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{../figures/paper/figure11.pdf}
-\caption{Boundary detail in the North-first evolution of tile \eqref{eq:reorganisation} at $n=999$, $t=4000$.}
+\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{figures/figure11.pdf}
+\caption{Boundary detail in the evolution of tile \eqref{eq:reorganisation} at $n=999$, $t=4000$.}
 \label{fig:reorganisation_zoomed}
 \end{figure}
 \section{Random Configurations}
 We conclude with a discussion of configurations in the $n $-by-$ n$ grid initialised at random. In a sense these configurations characterise the typical clearing time of the BML model. In the simulations we consider configurations in which each site contains an $\ra$ with probability $\frac{1}{2}$ and a $\ua$ with probability $\frac{1}{2}$. We observe a clearing time with a power law as in the periodic configurations, albeit the evidence is less convincing and the conjectured power is smaller in the random configurations than in the periodic configurations. The data from simulations for random configurations is plotted in Figure \ref{fig:random_graphs}.
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{../figures/paper/figure12.pdf}
-\caption{Clearing times for seeded random configurations with North updates first, using \FigureTwelveCount{} observations up to $n=\FigureTwelveMaxN$. Least-squares fit: $\log_2 T(W_n,n)=\FigureTwelvePower\log_2 n+\FigureTwelveIntercept$.}
+\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{figures/figure12.pdf}
+\caption{Clearing times for seeded random configurations, using \FigureTwelveCount{} observations up to $n=\FigureTwelveMaxN$. Least-squares fit: $\log_2 T(W_n,n)=\FigureTwelvePower\log_2 n+\FigureTwelveIntercept$.}
 \label{fig:random_graphs}
 \end{figure}
 Further, by inspecting the model midway through its clearing we notice the same chaotic clearing happening as seen in the periodic configurations, see Figure \ref{fig:random_1100}.
 As a result it is natural to conclude that random configurations with high probability have asymptotically non-linear clearing times. However, the simulation evidence for random configurations is less convincing than in the periodic setting.
 \begin{figure}
 \centering
-\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{../figures/paper/figure13.pdf}
-\caption{A random configuration at $n=1100$, $t=6500$, evolved with North updates first from the supplied initial matrix.}
+\includegraphics[width=\linewidth,height=.78\textheight,keepaspectratio]{figures/figure13.pdf}
+\caption{A random configuration at $n=1100$, $t=6500$, evolved from the supplied initial matrix.}
 \label{fig:random_1100}
 \end{figure}
 
 \clearpage
 \appendix
 \section{Vectorised Algorithm of the BML Model} \label{app:A}
-\subfile{sections/appendix}
+\input{sections/appendix}
 
-
-
-
-
-
-
-
-
-
-
-
-
-\bibliographystyle{plain} % We choose the "plain" reference style
-\bibliography{refs} % Entries are in the refs.bib file
+\bibliographystyle{plain}
+\bibliography{refs}
 
 \end{document}

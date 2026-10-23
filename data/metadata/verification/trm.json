@@ -1,0 +1,95 @@
+{
+  "model": "matrix-stack Top Row Model",
+  "all_exact_map_identities_pass": true,
+  "all_map_outputs_valid": true,
+  "nonidentity_maps_strictly_decrease_entry_sum": true,
+  "all_states_constructed_from_greatest_by_maps": true,
+  "interpretation": "finite verification supports the separate arbitrary-n case proof",
+  "checks": [
+    {
+      "n": 1,
+      "valid_states_checked": 3,
+      "shift_map_cases": {
+        "exit": 2,
+        "identity": 1
+      },
+      "reduction_map_cases": {
+        "diagonal free": 1,
+        "identity": 2
+      },
+      "maximum_clearing_time": 4,
+      "greatest_state_clearing_time": 4
+    },
+    {
+      "n": 2,
+      "valid_states_checked": 15,
+      "shift_map_cases": {
+        "(2, 2, False)": 1,
+        "(2, 4, False)": 1,
+        "(4, 2, False)": 1,
+        "(4, 4, False)": 1,
+        "exit": 10,
+        "identity": 16
+      },
+      "reduction_map_cases": {
+        "diagonal blocked": 4,
+        "diagonal free": 7,
+        "identity": 28,
+        "off diagonal moves": 1,
+        "off diagonal stays": 5
+      },
+      "maximum_clearing_time": 12,
+      "greatest_state_clearing_time": 12
+    },
+    {
+      "n": 3,
+      "valid_states_checked": 135,
+      "shift_map_cases": {
+        "(2, 2, False)": 11,
+        "(2, 2, True)": 4,
+        "(2, 4, False)": 11,
+        "(2, 4, True)": 4,
+        "(4, 2, False)": 11,
+        "(4, 2, True)": 4,
+        "(4, 4, False)": 11,
+        "(4, 4, True)": 4,
+        "exit": 90,
+        "identity": 255
+      },
+      "reduction_map_cases": {
+        "diagonal blocked": 84,
+        "diagonal free": 75,
+        "identity": 477,
+        "off diagonal moves": 21,
+        "off diagonal stays": 153
+      },
+      "maximum_clearing_time": 20,
+      "greatest_state_clearing_time": 20
+    },
+    {
+      "n": 4,
+      "valid_states_checked": 2295,
+      "shift_map_cases": {
+        "(2, 2, False)": 199,
+        "(2, 2, True)": 116,
+        "(2, 4, False)": 199,
+        "(2, 4, True)": 116,
+        "(4, 2, False)": 199,
+        "(4, 2, True)": 116,
+        "(4, 4, False)": 199,
+        "(4, 4, True)": 116,
+        "exit": 1530,
+        "identity": 6390
+      },
+      "reduction_map_cases": {
+        "diagonal blocked": 2388,
+        "diagonal free": 1395,
+        "identity": 12969,
+        "off diagonal moves": 537,
+        "off diagonal stays": 5661
+      },
+      "maximum_clearing_time": 28,
+      "greatest_state_clearing_time": 28
+    }
+  ]
+}

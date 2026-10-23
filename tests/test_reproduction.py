@@ -41,7 +41,7 @@ def test_power_law_fit(tmp_path):
 
 def test_reference_integrity():
     import hashlib
-    manifest = json.loads((ROOT / 'data/provenance/clearing_times_checksums.json').read_text())
+    manifest = json.loads((ROOT / 'data/metadata/clearing_times_checksums.json').read_text())
     assert len(manifest) > 500
     for name, expected in manifest.items():
         assert hashlib.sha256((ROOT / 'data/clearing_times/historical' / name).read_bytes()).hexdigest() == expected

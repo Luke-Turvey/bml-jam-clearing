@@ -1,0 +1,2955 @@
+{
+  "checks": 589,
+  "exhaustive_binary_3x3": 512,
+  "larger_and_phase_cases": 72,
+  "current_figure06_cases": 5,
+  "rule": "simultaneous North updates at odd times; open top/right boundaries",
+  "elapsed_seconds": 2.4535018839960685,
+  "cases": [
+    {
+      "tile": "111111111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "111111113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111111131",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111111133",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "111111311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "111111313",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "111111331",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "111111333",
+      "n": 3,
+      "clearing_time": 17
+    },
+    {
+      "tile": "111113111",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "111113113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111113131",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111113133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111113311",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "111113313",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111113331",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111113333",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111131111",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "111131113",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "111131131",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111131133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111131311",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "111131313",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "111131331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "111131333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "111133111",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111133113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111133131",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "111133133",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "111133311",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111133313",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111133331",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "111133333",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "111311111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "111311113",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "111311131",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "111311133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111311311",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "111311313",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "111311331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "111311333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "111313111",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "111313113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111313131",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111313133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111313311",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "111313313",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "111313331",
+      "n": 3,
+      "clearing_time": 17
+    },
+    {
+      "tile": "111313333",
+      "n": 3,
+      "clearing_time": 17
+    },
+    {
+      "tile": "111331111",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "111331113",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "111331131",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "111331133",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "111331311",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "111331313",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "111331331",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "111331333",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "111333111",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111333113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111333131",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "111333133",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "111333311",
+      "n": 3,
+      "clearing_time": 17
+    },
+    {
+      "tile": "111333313",
+      "n": 3,
+      "clearing_time": 17
+    },
+    {
+      "tile": "111333331",
+      "n": 3,
+      "clearing_time": 17
+    },
+    {
+      "tile": "111333333",
+      "n": 3,
+      "clearing_time": 17
+    },
+    {
+      "tile": "113111111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "113111113",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "113111131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "113111133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "113111311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "113111313",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113111331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113111333",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "113113111",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "113113113",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "113113131",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "113113133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "113113311",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113113313",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "113113331",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "113113333",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "113131111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "113131113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "113131131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "113131133",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "113131311",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "113131313",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "113131331",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "113131333",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "113133111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "113133113",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "113133131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "113133133",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113133311",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "113133313",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113133331",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "113133333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113311111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "113311113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "113311131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "113311133",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "113311311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "113311313",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "113311331",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "113311333",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "113313111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "113313113",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "113313131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "113313133",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113313311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "113313313",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113313331",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "113313333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113331111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "113331113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "113331131",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "113331133",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "113331311",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113331313",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113331331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113331333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113333111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "113333113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "113333131",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "113333133",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113333311",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113333313",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113333331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113333333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "131111111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "131111113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "131111131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "131111133",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "131111311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "131111313",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "131111331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "131111333",
+      "n": 3,
+      "clearing_time": 17
+    },
+    {
+      "tile": "131113111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "131113113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "131113131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "131113133",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "131113311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "131113313",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "131113331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "131113333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "131131111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "131131113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "131131131",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "131131133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "131131311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "131131313",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "131131331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "131131333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "131133111",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "131133113",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "131133131",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "131133133",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "131133311",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "131133313",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "131133331",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "131133333",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "131311111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "131311113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "131311131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "131311133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "131311311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "131311313",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "131311331",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "131311333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "131313111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "131313113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "131313131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "131313133",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "131313311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "131313313",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "131313331",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "131313333",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "131331111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "131331113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "131331131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "131331133",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "131331311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "131331313",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "131331331",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "131331333",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "131333111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "131333113",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "131333131",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "131333133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "131333311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "131333313",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "131333331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "131333333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "133111111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "133111113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "133111131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "133111133",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "133111311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "133111313",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "133111331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "133111333",
+      "n": 3,
+      "clearing_time": 17
+    },
+    {
+      "tile": "133113111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "133113113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "133113131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "133113133",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "133113311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "133113313",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "133113331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "133113333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "133131111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "133131113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "133131131",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "133131133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "133131311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "133131313",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "133131331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "133131333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "133133111",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "133133113",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "133133131",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "133133133",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "133133311",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "133133313",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "133133331",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "133133333",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "133311111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "133311113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "133311131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "133311133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "133311311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "133311313",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "133311331",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "133311333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "133313111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "133313113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "133313131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "133313133",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "133313311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "133313313",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "133313331",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "133313333",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "133331111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "133331113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "133331131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "133331133",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "133331311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "133331313",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "133331331",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "133331333",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "133333111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "133333113",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "133333131",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "133333133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "133333311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "133333313",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "133333331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "133333333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "311111111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "311111113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "311111131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "311111133",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "311111311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "311111313",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "311111331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "311111333",
+      "n": 3,
+      "clearing_time": 17
+    },
+    {
+      "tile": "311113111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "311113113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "311113131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "311113133",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "311113311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "311113313",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "311113331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "311113333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "311131111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "311131113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "311131131",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "311131133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "311131311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "311131313",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "311131331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "311131333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "311133111",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "311133113",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "311133131",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "311133133",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "311133311",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "311133313",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "311133331",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "311133333",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "311311111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "311311113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "311311131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "311311133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "311311311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "311311313",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "311311331",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "311311333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "311313111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "311313113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "311313131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "311313133",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "311313311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "311313313",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "311313331",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "311313333",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "311331111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "311331113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "311331131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "311331133",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "311331311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "311331313",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "311331331",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "311331333",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "311333111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "311333113",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "311333131",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "311333133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "311333311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "311333313",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "311333331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "311333333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "313111111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "313111113",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "313111131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "313111133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "313111311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "313111313",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "313111331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "313111333",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "313113111",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "313113113",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "313113131",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "313113133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "313113311",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "313113313",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "313113331",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "313113333",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "313131111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "313131113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "313131131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "313131133",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "313131311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "313131313",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "313131331",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "313131333",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "313133111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "313133113",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "313133131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "313133133",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "313133311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "313133313",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "313133331",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "313133333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "313311111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "313311113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "313311131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "313311133",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "313311311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "313311313",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "313311331",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "313311333",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "313313111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "313313113",
+      "n": 3,
+      "clearing_time": 16
+    },
+    {
+      "tile": "313313131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "313313133",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "313313311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "313313313",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "313313331",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "313313333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "313331111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "313331113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "313331131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "313331133",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "313331311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "313331313",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "313331331",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "313331333",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "313333111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "313333113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "313333131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "313333133",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "313333311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "313333313",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "313333331",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "313333333",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "331111111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331111113",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "331111131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "331111133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "331111311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "331111313",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "331111331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "331111333",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "331113111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331113113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "331113131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "331113133",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "331113311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "331113313",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "331113331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "331113333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "331131111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331131113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331131131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "331131133",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "331131311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "331131313",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "331131331",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "331131333",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "331133111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331133113",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "331133131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "331133133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "331133311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "331133313",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331133331",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "331133333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "331311111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331311113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331311131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331311133",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "331311311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "331311313",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "331311331",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "331311333",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "331313111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331313113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "331313131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331313133",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "331313311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "331313313",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "331313331",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "331313333",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "331331111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331331113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331331131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331331133",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331331311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "331331313",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "331331331",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "331331333",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "331333111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331333113",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "331333131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331333133",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "331333311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "331333313",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "331333331",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "331333333",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "333111111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333111113",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "333111131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "333111133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "333111311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "333111313",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "333111331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "333111333",
+      "n": 3,
+      "clearing_time": 15
+    },
+    {
+      "tile": "333113111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333113113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "333113131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "333113133",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "333113311",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "333113313",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "333113331",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "333113333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "333131111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333131113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333131131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "333131133",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "333131311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "333131313",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "333131331",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "333131333",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "333133111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333133113",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "333133131",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "333133133",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "333133311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "333133313",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333133331",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "333133333",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "333311111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333311113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333311131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333311133",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "333311311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "333311313",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "333311331",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "333311333",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "333313111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333313113",
+      "n": 3,
+      "clearing_time": 14
+    },
+    {
+      "tile": "333313131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333313133",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "333313311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "333313313",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "333313331",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "333313333",
+      "n": 3,
+      "clearing_time": 11
+    },
+    {
+      "tile": "333331111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333331113",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333331131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333331133",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333331311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "333331313",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "333331331",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "333331333",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "333333111",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333333113",
+      "n": 3,
+      "clearing_time": 12
+    },
+    {
+      "tile": "333333131",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333333133",
+      "n": 3,
+      "clearing_time": 10
+    },
+    {
+      "tile": "333333311",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "333333313",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "333333331",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "333333333",
+      "n": 3,
+      "clearing_time": 9
+    },
+    {
+      "tile": "111111111",
+      "n": 1,
+      "clearing_time": 2
+    },
+    {
+      "tile": "111111111",
+      "n": 2,
+      "clearing_time": 6
+    },
+    {
+      "tile": "111111111",
+      "n": 4,
+      "clearing_time": 14
+    },
+    {
+      "tile": "111111111",
+      "n": 6,
+      "clearing_time": 22
+    },
+    {
+      "tile": "111111111",
+      "n": 7,
+      "clearing_time": 26
+    },
+    {
+      "tile": "111111111",
+      "n": 63,
+      "clearing_time": 250
+    },
+    {
+      "tile": "111111111",
+      "n": 64,
+      "clearing_time": 254
+    },
+    {
+      "tile": "111111111",
+      "n": 65,
+      "clearing_time": 258
+    },
+    {
+      "tile": "111111111",
+      "n": 66,
+      "clearing_time": 262
+    },
+    {
+      "tile": "111111111",
+      "n": 127,
+      "clearing_time": 506
+    },
+    {
+      "tile": "111111111",
+      "n": 128,
+      "clearing_time": 510
+    },
+    {
+      "tile": "111111111",
+      "n": 129,
+      "clearing_time": 514
+    },
+    {
+      "tile": "333333333",
+      "n": 1,
+      "clearing_time": 1
+    },
+    {
+      "tile": "333333333",
+      "n": 2,
+      "clearing_time": 5
+    },
+    {
+      "tile": "333333333",
+      "n": 4,
+      "clearing_time": 13
+    },
+    {
+      "tile": "333333333",
+      "n": 6,
+      "clearing_time": 21
+    },
+    {
+      "tile": "333333333",
+      "n": 7,
+      "clearing_time": 25
+    },
+    {
+      "tile": "333333333",
+      "n": 63,
+      "clearing_time": 249
+    },
+    {
+      "tile": "333333333",
+      "n": 64,
+      "clearing_time": 253
+    },
+    {
+      "tile": "333333333",
+      "n": 65,
+      "clearing_time": 257
+    },
+    {
+      "tile": "333333333",
+      "n": 66,
+      "clearing_time": 261
+    },
+    {
+      "tile": "333333333",
+      "n": 127,
+      "clearing_time": 505
+    },
+    {
+      "tile": "333333333",
+      "n": 128,
+      "clearing_time": 509
+    },
+    {
+      "tile": "333333333",
+      "n": 129,
+      "clearing_time": 513
+    },
+    {
+      "tile": "131313131",
+      "n": 1,
+      "clearing_time": 2
+    },
+    {
+      "tile": "131313131",
+      "n": 2,
+      "clearing_time": 6
+    },
+    {
+      "tile": "131313131",
+      "n": 4,
+      "clearing_time": 18
+    },
+    {
+      "tile": "131313131",
+      "n": 6,
+      "clearing_time": 28
+    },
+    {
+      "tile": "131313131",
+      "n": 7,
+      "clearing_time": 36
+    },
+    {
+      "tile": "131313131",
+      "n": 63,
+      "clearing_time": 448
+    },
+    {
+      "tile": "131313131",
+      "n": 64,
+      "clearing_time": 456
+    },
+    {
+      "tile": "131313131",
+      "n": 65,
+      "clearing_time": 443
+    },
+    {
+      "tile": "131313131",
+      "n": 66,
+      "clearing_time": 489
+    },
+    {
+      "tile": "131313131",
+      "n": 127,
+      "clearing_time": 1033
+    },
+    {
+      "tile": "131313131",
+      "n": 128,
+      "clearing_time": 1071
+    },
+    {
+      "tile": "131313131",
+      "n": 129,
+      "clearing_time": 1064
+    },
+    {
+      "tile": "113133313",
+      "n": 1,
+      "clearing_time": 1
+    },
+    {
+      "tile": "113133313",
+      "n": 2,
+      "clearing_time": 5
+    },
+    {
+      "tile": "113133313",
+      "n": 4,
+      "clearing_time": 19
+    },
+    {
+      "tile": "113133313",
+      "n": 6,
+      "clearing_time": 37
+    },
+    {
+      "tile": "113133313",
+      "n": 7,
+      "clearing_time": 43
+    },
+    {
+      "tile": "113133313",
+      "n": 63,
+      "clearing_time": 601
+    },
+    {
+      "tile": "113133313",
+      "n": 64,
+      "clearing_time": 637
+    },
+    {
+      "tile": "113133313",
+      "n": 65,
+      "clearing_time": 641
+    },
+    {
+      "tile": "113133313",
+      "n": 66,
+      "clearing_time": 663
+    },
+    {
+      "tile": "113133313",
+      "n": 127,
+      "clearing_time": 1499
+    },
+    {
+      "tile": "113133313",
+      "n": 128,
+      "clearing_time": 1503
+    },
+    {
+      "tile": "113133313",
+      "n": 129,
+      "clearing_time": 1466
+    },
+    {
+      "tile": "133333113",
+      "n": 1,
+      "clearing_time": 2
+    },
+    {
+      "tile": "133333113",
+      "n": 2,
+      "clearing_time": 6
+    },
+    {
+      "tile": "133333113",
+      "n": 4,
+      "clearing_time": 20
+    },
+    {
+      "tile": "133333113",
+      "n": 6,
+      "clearing_time": 34
+    },
+    {
+      "tile": "133333113",
+      "n": 7,
+      "clearing_time": 42
+    },
+    {
+      "tile": "133333113",
+      "n": 63,
+      "clearing_time": 452
+    },
+    {
+      "tile": "133333113",
+      "n": 64,
+      "clearing_time": 460
+    },
+    {
+      "tile": "133333113",
+      "n": 65,
+      "clearing_time": 491
+    },
+    {
+      "tile": "133333113",
+      "n": 66,
+      "clearing_time": 474
+    },
+    {
+      "tile": "133333113",
+      "n": 127,
+      "clearing_time": 922
+    },
+    {
+      "tile": "133333113",
+      "n": 128,
+      "clearing_time": 1133
+    },
+    {
+      "tile": "133333113",
+      "n": 129,
+      "clearing_time": 936
+    },
+    {
+      "tile": "133131313",
+      "n": 1,
+      "clearing_time": 1
+    },
+    {
+      "tile": "133131313",
+      "n": 2,
+      "clearing_time": 5
+    },
+    {
+      "tile": "133131313",
+      "n": 4,
+      "clearing_time": 15
+    },
+    {
+      "tile": "133131313",
+      "n": 6,
+      "clearing_time": 29
+    },
+    {
+      "tile": "133131313",
+      "n": 7,
+      "clearing_time": 33
+    },
+    {
+      "tile": "133131313",
+      "n": 63,
+      "clearing_time": 428
+    },
+    {
+      "tile": "133131313",
+      "n": 64,
+      "clearing_time": 456
+    },
+    {
+      "tile": "133131313",
+      "n": 65,
+      "clearing_time": 477
+    },
+    {
+      "tile": "133131313",
+      "n": 66,
+      "clearing_time": 472
+    },
+    {
+      "tile": "133131313",
+      "n": 127,
+      "clearing_time": 1030
+    },
+    {
+      "tile": "133131313",
+      "n": 128,
+      "clearing_time": 1060
+    },
+    {
+      "tile": "133131313",
+      "n": 129,
+      "clearing_time": 1084
+    },
+    {
+      "tile": "113133313",
+      "n": 3,
+      "clearing_time": 13
+    },
+    {
+      "tile": "113133313",
+      "n": 66,
+      "clearing_time": 663
+    },
+    {
+      "tile": "113133313",
+      "n": 138,
+      "clearing_time": 1573
+    },
+    {
+      "tile": "113133313",
+      "n": 285,
+      "clearing_time": 3912
+    },
+    {
+      "tile": "113133313",
+      "n": 498,
+      "clearing_time": 8000
+    }
+  ]
+}

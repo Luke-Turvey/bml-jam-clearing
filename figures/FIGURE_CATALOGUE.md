@@ -27,7 +27,7 @@ indexed from the top left. Every recipe is in `figures/recipes/figureNN.json`.
 Row offsets are zero-based and applied after discarding blank CSV lines. Repeated
 observations are retained, including their weights in the regressions. Figure 2
 uses the sampled dataset shown in its original source image, rather than the
-much denser general-periodic sweep.
+much denser general-periodic measurements.
 
 ## Crops
 
@@ -42,19 +42,20 @@ not change the selected region.
 | Figure 9, highway | 4435 × 4435 | `[1054, 1322, 59, 619]` |
 | Figure 11, boundary | 7392 × 7392 | `[3336, 4928, 68, 1560]` |
 
-The rectangles retain the original detail locations, applied to regenerated
-North-first states. Figure 5 uses the same state as Figure 10's t=6000 panel.
+The rectangles retain the original detail locations, applied to the saved
+states. Figure 5 uses the same state as Figure 10's t=6000 panel.
 
 ## Scaling fits
 
 Regressions use `log2(T) = power × log2(n) + intercept`; the coefficient in
 original coordinates is `2^intercept`. Figure 7 keeps separate fits for residue
 2 and the pooled other residues. Every fit is written to the figure provenance
-and to `figure_statistics.tex`. `make -C latex figures` saves the PDFs and
-matching numerical captions together in `figures/paper/` for the manuscript.
-Normal paper compilation uses that fixed set without rendering again.
+and to `figures/outputs/figure_statistics.tex`. After rendering with
+`bml figures all --update`, run `bml save-paper-figures` to save the PDFs in
+`latex/figures/` and their matching numerical values in
+`latex/figure_statistics.tex`. Paper compilation reads that fixed set.
 
-Figures 6 and 12 contain freshly computed North-first sweeps up to n=999.
+Figures 6 and 12 contain measurements up to n=999.
 `bml refresh-data --max-n 10000 --skip-states` extends them to the full source
 size lists. The distributed measurements are not the historical East-first
 Figure 6 values or unseeded Figure 12 samples.

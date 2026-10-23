@@ -6,6 +6,8 @@
 | `figure06-fit.json` | Fit for the 28 North-first observations in Figure 6 |
 | `figure07-fit.json` | Fits for the 70 observations in Figure 7, separated into n mod 3=2 and the pooled other residues |
 | `figure12-fit.json` | Fit for the 110 seeded North-first observations in Figure 12 |
+| `paper-figures.json` | Checksums and computation records for the saved PDFs in `../../latex/figures/` and numerical captions |
+| `verification/` | Finite checks of the explicit evolution, Top Row Model and appendix algorithm |
 
 The standard figure build updates these fit summaries from the same regressions
 used in the manuscript captions. Each fit summary identifies its numbered recipe, update convention, observation

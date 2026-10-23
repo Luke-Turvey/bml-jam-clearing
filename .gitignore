@@ -25,6 +25,7 @@ venv/
 # Generated figures and manuscript products
 /figures/outputs/
 /latex/build/
+/miscellaneous/arxiv-source.zip
 *.npy
 *.npz
 !/data/figure_states/matrices/*.npz
@@ -52,5 +53,6 @@ venv/
 .agents/
 .aws/
 
-# Saved figure PDFs distributed with the manuscript
-!/figures/paper/figure[0-9][0-9].pdf
+# Saved images and bibliography distributed with the manuscript
+!/latex/figures/figure[0-9][0-9].pdf
+!/latex/main.bbl

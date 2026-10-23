@@ -11,16 +11,11 @@
 \usepackage{bm}
 \usepackage{dsfont}
 \usepackage[margin=1in]{geometry}
-\usepackage[utf8]{inputenc}
 \usepackage{pgfplots}
 \usepackage{tikz}
 \usepackage{colortbl}
-\usepackage{subfiles}
 \usepackage{xcolor}
 \usepackage[sort,compress,numbers]{natbib}
-
-\usetikzlibrary{external}
-\tikzexternalize
 
 \usepackage{array}
 \newcolumntype{x}[1]{>{\centering\arraybackslash}p{#1}}
@@ -28,16 +23,13 @@
 \usetikzlibrary{positioning}
 \usetikzlibrary {arrows.meta}
 \pgfplotsset{width=9cm,compat=1.9}
-\usepackage{xcolor}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{hyperref}
-\usepackage{pgfplots}
 \usepackage[linguistics]{forest}
 
-\renewcommand\floatpagefraction{0.8} %% default value: 0.5
-\renewcommand\topfraction{0.8}       %% default value: 0.7
-
+\renewcommand\floatpagefraction{0.8}
+\renewcommand\topfraction{0.8}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
@@ -77,17 +69,17 @@
 
 \newcommand{\Tmax}{T^{\text{\rm max}}(n)}
 
-
-\newcommand{\red}[1]{\textcolor{red}{#1}}
-
-\graphicspath{{../figures/paper/}}
-
-\newcommand{\anote}[1]{{\bf\textcolor{blue}
-{[AEH:#1\marginpar{\textcolor{red}{\bf $\bigstar\bigstar\bigstar$}}]}}}
-
-\newcommand{\anoteluke}[1]{{\bf\textcolor{blue}
-{[LAT:#1\marginpar{\textcolor{red}{\bf $\bigstar\bigstar\bigstar$}}]}}}
-
 \title{Jam Clearing in the Biham-Middleton-Levine Traffic Model}
-\author{Alexander E. Holroyd, Luke A. Turvey}
-\date{\today}
+\author{Alexander E. Holroyd}
+\author{Luke A. Turvey}
+\date{21 October 2026}
+
+\usepackage{longtable,booktabs}
+\hypersetup{hidelinks}
+
+\hypersetup{hidelinks,
+  pdftitle={Jam Clearing in the Biham-Middleton-Levine Traffic Model},
+  pdfauthor={Alexander E. Holroyd and Luke A. Turvey}}
+\keywords{Biham--Middleton--Levine model, cellular automata, clearing time, finite-size scaling}
+
+\usepackage{algorithm,algpseudocode}

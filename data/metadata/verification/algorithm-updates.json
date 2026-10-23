@@ -1,0 +1,11 @@
+{
+  "states_sizes": [
+    1,
+    2,
+    3
+  ],
+  "directional_updates_checked": 39534,
+  "comparison": "Arithmetic-mask algorithm against the simultaneous-update implementation",
+  "all_match": true,
+  "exits_and_old_state_blocking_checked": true
+}

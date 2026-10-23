@@ -1,0 +1,898 @@
+{
+  "tiles": 512,
+  "observations": 84992,
+  "sizes_per_tile": 166,
+  "minimum_n": 3,
+  "maximum_n": 498,
+  "observed_affine_tail": 166,
+  "observed_non_affine_tail": 346,
+  "asymptotically_classified_by_survey": 0,
+  "first_update": "north",
+  "tile_anchor": "bottom-left",
+  "analysis_plan_sha256": "9d718746e1bccfe446c73b03d008f01d91b7b85dd451ce1a60025657efbe7f0f",
+  "analysis_source_sha256": "89c6445f4516f90abf26ae8fc9d0cbb33f82333f255609fc947bcec59c9b1566",
+  "printed_catalogue_input_sha256": "87dffcc13d60c5a9fb157ce2128e7a4d5283456d54252259cb14d079b2a15aed",
+  "printed_catalogue_original_source": {
+    "path": "latex/sections/appendix.tex",
+    "sha256": "57112ee1b974a8074eb5a688c0db8b54acb0395721d0b27d2e5ae9a600185bed",
+    "description": "Exploratory printed catalogue retained for comparison; its estimates are not treated as validated classifications."
+  },
+  "numpy": "2.3.3",
+  "fits": {
+    "model": "log2(T)=power*log2(n)+intercept",
+    "method": "ordinary least squares",
+    "weighting": "equal weight per sampled size",
+    "cutoffs": [
+      3,
+      30,
+      100,
+      250,
+      350
+    ]
+  },
+  "affine_tail_criterion": {
+    "sizes": [
+      333,
+      336,
+      339,
+      342,
+      345,
+      348,
+      351,
+      354,
+      357,
+      360,
+      363,
+      366,
+      369,
+      372,
+      375,
+      378,
+      381,
+      384,
+      387,
+      390,
+      393,
+      396,
+      399,
+      402,
+      405,
+      408,
+      411,
+      414,
+      417,
+      420,
+      423,
+      426,
+      429,
+      432,
+      435,
+      438,
+      441,
+      444,
+      447,
+      450,
+      453,
+      456,
+      459,
+      462,
+      465,
+      468,
+      471,
+      474,
+      477,
+      480,
+      483,
+      486,
+      489,
+      492,
+      495,
+      498
+    ],
+    "observations": 56,
+    "criterion": "all 55 adjacent differences T(n+3)-T(n) are exactly equal; report the exact rational slope and intercept",
+    "labels": {
+      "matches": "observed affine tail",
+      "otherwise": "observed non-affine tail"
+    },
+    "interpretation": "Neither label establishes linear or superlinear asymptotic growth."
+  },
+  "affine_periodic_analysis": {
+    "schema_version": 1,
+    "purpose": "Exact finite-data affine-plus-periodic model checks; no asymptotic classification",
+    "sample_index": "q=n/3",
+    "sample_anchor": 0,
+    "n_spacing": 3,
+    "model": "T(n)=a*n+b[q mod p]",
+    "training": {
+      "minimum_n": 102,
+      "maximum_n": 330,
+      "observations": 77
+    },
+    "validation": {
+      "minimum_n": 333,
+      "maximum_n": 498,
+      "observations": 56
+    },
+    "candidate_periods_in_sample_index": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ],
+    "minimum_training_observations_per_residue": 4,
+    "minimum_validation_observations_per_residue": 4,
+    "selection": "Select the smallest period fitting all training observations exactly, using rational arithmetic; validate that fixed model without selecting another period after seeing validation outcomes.",
+    "validation_requirement": "Every withheld observation must match exactly.",
+    "earlier_sizes": "After validation, report the earliest exact suffix of the full saved size list for the same fixed coefficients; do not refit using earlier observations.",
+    "power_fit": {
+      "minimum_n": 102,
+      "maximum_n": 498,
+      "observations": 133,
+      "method": "OLS log2(T)=alpha*log2(n)+intercept",
+      "coefficient": "C=2^intercept",
+      "weighting": "equal weight per sampled size"
+    },
+    "validated_affine": 166,
+    "validated_affine_periodic": 69,
+    "failed_validation": 0,
+    "no_exact_training_model": 277,
+    "counts": {
+      "validated_affine": 166,
+      "validated_affine_periodic": 69,
+      "failed_validation": 0,
+      "no_exact_training_model": 277
+    },
+    "validated_period_counts": {
+      "1": 166,
+      "3": 48,
+      "4": 3,
+      "9": 17,
+      "12": 1
+    },
+    "plan_sha256": "1102dcacbda3593a1e76d43c7badf73f5acf904d33f89e373fe0b9b27a635c11",
+    "descriptive_power_threshold_check": {
+      "threshold": 1.05,
+      "comparison": "power < threshold at minimum-size cutoff 100",
+      "unmatched_count": 0,
+      "unmatched_tiles": [],
+      "used_to_select_period_limit": false
+    }
+  },
+  "selected_cases": [
+    {
+      "tile": "111111111",
+      "observations": 166,
+      "minimum_n": 3,
+      "maximum_n": 498,
+      "tail_descriptor": "observed affine tail",
+      "asymptotic_status": "not inferred from finite survey",
+      "affine_tail": {
+        "slope": {
+          "numerator": 4,
+          "denominator": 1
+        },
+        "intercept": {
+          "numerator": -2,
+          "denominator": 1
+        },
+        "minimum_n": 333,
+        "maximum_n": 498,
+        "observations": 56
+      },
+      "fits": {
+        "3": {
+          "observations": 166,
+          "minimum_n": 3,
+          "maximum_n": 498,
+          "power": 1.0124161657269282,
+          "intercept": 1.8978277016789322,
+          "log_base": 2,
+          "coefficient": 3.72651663985724,
+          "log_rmse": 0.017128180514467947
+        },
+        "30": {
+          "observations": 157,
+          "minimum_n": 30,
+          "maximum_n": 498,
+          "power": 1.003903686409141,
+          "intercept": 1.965263953973616,
+          "log_base": 2,
+          "coefficient": 3.904841403446877,
+          "log_rmse": 0.0015793214273712114
+        },
+        "100": {
+          "observations": 133,
+          "minimum_n": 102,
+          "maximum_n": 498,
+          "power": 1.00218776119515,
+          "intercept": 1.9793672740209032,
+          "log_base": 2,
+          "coefficient": 3.9432010602129903,
+          "log_rmse": 0.0002935410215418993
+        },
+        "250": {
+          "observations": 83,
+          "minimum_n": 252,
+          "maximum_n": 498,
+          "power": 1.001409868157946,
+          "intercept": 1.9859824641019217,
+          "log_base": 2,
+          "coefficient": 3.96132333771944,
+          "log_rmse": 3.591827621788843e-05
+        },
+        "350": {
+          "observations": 50,
+          "minimum_n": 351,
+          "maximum_n": 498,
+          "power": 1.0011968292072886,
+          "intercept": 1.987842865937044,
+          "log_base": 2,
+          "coefficient": 3.9664348871072357,
+          "log_rmse": 8.193403444427273e-06
+        }
+      },
+      "finite_model_descriptor": "validated finite affine formula",
+      "affine_periodic_candidate": {
+        "period_in_sample_index": 1,
+        "n_period": 3,
+        "sample_anchor": 0,
+        "q_definition": "q=n/3",
+        "slope": {
+          "numerator": 4,
+          "denominator": 1
+        },
+        "offsets": [
+          {
+            "numerator": -2,
+            "denominator": 1
+          }
+        ],
+        "training": {
+          "minimum_n": 102,
+          "maximum_n": 330,
+          "observations": 77,
+          "exact": true,
+          "minimum_observations_per_residue": 77
+        },
+        "validation": {
+          "minimum_n": 333,
+          "maximum_n": 498,
+          "observations": 56,
+          "exact": true,
+          "minimum_observations_per_residue": 56,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "validated": true,
+        "observed_exact_suffix": {
+          "minimum_n": 3,
+          "maximum_n": 498,
+          "observations": 166,
+          "coefficients_refitted": false
+        }
+      },
+      "affine_periodic_search": [
+        {
+          "period_in_sample_index": 1,
+          "exact_training_drift": true
+        }
+      ],
+      "printed_catalogue": {
+        "printed_value": 4.0,
+        "source_line": 1825
+      }
+    },
+    {
+      "tile": "113133313",
+      "observations": 166,
+      "minimum_n": 3,
+      "maximum_n": 498,
+      "tail_descriptor": "observed non-affine tail",
+      "asymptotic_status": "not inferred from finite survey",
+      "affine_tail": null,
+      "fits": {
+        "3": {
+          "observations": 166,
+          "minimum_n": 3,
+          "maximum_n": 498,
+          "power": 1.2358839954601855,
+          "intercept": 1.8882136363946507,
+          "log_base": 2,
+          "coefficient": 3.7017658344734676,
+          "log_rmse": 0.04923977256262592
+        },
+        "30": {
+          "observations": 157,
+          "minimum_n": 30,
+          "maximum_n": 498,
+          "power": 1.254262988689801,
+          "intercept": 1.740279977829581,
+          "log_base": 2,
+          "coefficient": 3.340999988783858,
+          "log_rmse": 0.036138609545771826
+        },
+        "100": {
+          "observations": 133,
+          "minimum_n": 102,
+          "maximum_n": 498,
+          "power": 1.2816781594837217,
+          "intercept": 1.5149550129058147,
+          "log_base": 2,
+          "coefficient": 2.8578991611448608,
+          "log_rmse": 0.026991164432807132
+        },
+        "250": {
+          "observations": 83,
+          "minimum_n": 252,
+          "maximum_n": 498,
+          "power": 1.2868905747228108,
+          "intercept": 1.4708383056094045,
+          "log_base": 2,
+          "coefficient": 2.771829092799616,
+          "log_rmse": 0.028415879393888052
+        },
+        "350": {
+          "observations": 50,
+          "minimum_n": 351,
+          "maximum_n": 498,
+          "power": 1.2722075450509662,
+          "intercept": 1.5996290305545282,
+          "log_base": 2,
+          "coefficient": 3.0306537413510184,
+          "log_rmse": 0.029015858974625327
+        }
+      },
+      "finite_model_descriptor": "finite-range power fit; no validated exact periodic model",
+      "affine_periodic_candidate": null,
+      "affine_periodic_search": [
+        {
+          "period_in_sample_index": 1,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 2,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 3,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 4,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 5,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 6,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 7,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 8,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 9,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 10,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 11,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 12,
+          "exact_training_drift": false
+        }
+      ],
+      "printed_catalogue": {
+        "printed_value": 1.214,
+        "source_line": 964
+      }
+    },
+    {
+      "tile": "133131313",
+      "observations": 166,
+      "minimum_n": 3,
+      "maximum_n": 498,
+      "tail_descriptor": "observed non-affine tail",
+      "asymptotic_status": "not inferred from finite survey",
+      "affine_tail": null,
+      "fits": {
+        "3": {
+          "observations": 166,
+          "minimum_n": 3,
+          "maximum_n": 498,
+          "power": 1.2081984403835606,
+          "intercept": 1.59426495457062,
+          "log_base": 2,
+          "coefficient": 3.0194064077009553,
+          "log_rmse": 0.04707883017242115
+        },
+        "30": {
+          "observations": 157,
+          "minimum_n": 30,
+          "maximum_n": 498,
+          "power": 1.229136064559199,
+          "intercept": 1.426202554079936,
+          "log_base": 2,
+          "coefficient": 2.6873841331232167,
+          "log_rmse": 0.034721311809118936
+        },
+        "100": {
+          "observations": 133,
+          "minimum_n": 102,
+          "maximum_n": 498,
+          "power": 1.254180165768135,
+          "intercept": 1.219722224488025,
+          "log_base": 2,
+          "coefficient": 2.329018702103404,
+          "log_rmse": 0.03025704510012952
+        },
+        "250": {
+          "observations": 83,
+          "minimum_n": 252,
+          "maximum_n": 498,
+          "power": 1.2765192709616062,
+          "intercept": 1.0314711377147898,
+          "log_base": 2,
+          "coefficient": 2.044107596119003,
+          "log_rmse": 0.0272310022220819
+        },
+        "350": {
+          "observations": 50,
+          "minimum_n": 351,
+          "maximum_n": 498,
+          "power": 1.2645904234022654,
+          "intercept": 1.1349914930239509,
+          "log_base": 2,
+          "coefficient": 2.196172677613837,
+          "log_rmse": 0.02613956654920756
+        }
+      },
+      "finite_model_descriptor": "finite-range power fit; no validated exact periodic model",
+      "affine_periodic_candidate": null,
+      "affine_periodic_search": [
+        {
+          "period_in_sample_index": 1,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 2,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 3,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 4,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 5,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 6,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 7,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 8,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 9,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 10,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 11,
+          "exact_training_drift": false
+        },
+        {
+          "period_in_sample_index": 12,
+          "exact_training_drift": false
+        }
+      ],
+      "printed_catalogue": {
+        "printed_value": 1.16,
+        "source_line": 460
+      }
+    },
+    {
+      "tile": "133333113",
+      "observations": 166,
+      "minimum_n": 3,
+      "maximum_n": 498,
+      "tail_descriptor": "observed affine tail",
+      "asymptotic_status": "not inferred from finite survey",
+      "affine_tail": {
+        "slope": {
+          "numerator": 22,
+          "denominator": 3
+        },
+        "intercept": {
+          "numerator": -10,
+          "denominator": 1
+        },
+        "minimum_n": 333,
+        "maximum_n": 498,
+        "observations": 56
+      },
+      "fits": {
+        "3": {
+          "observations": 166,
+          "minimum_n": 3,
+          "maximum_n": 498,
+          "power": 1.037800528482302,
+          "intercept": 2.5647273035186977,
+          "log_base": 2,
+          "coefficient": 5.916431614509969,
+          "log_rmse": 0.05738561730410634
+        },
+        "30": {
+          "observations": 157,
+          "minimum_n": 30,
+          "maximum_n": 498,
+          "power": 1.0107550913182983,
+          "intercept": 2.7788288437955977,
+          "log_base": 2,
+          "coefficient": 6.862949999171615,
+          "log_rmse": 0.004394797987173535
+        },
+        "100": {
+          "observations": 133,
+          "minimum_n": 102,
+          "maximum_n": 498,
+          "power": 1.005992364790501,
+          "intercept": 2.8179723666926195,
+          "log_base": 2,
+          "coefficient": 7.0517061939423,
+          "log_rmse": 0.0008074551166148496
+        },
+        "250": {
+          "observations": 83,
+          "minimum_n": 252,
+          "maximum_n": 498,
+          "power": 1.003854708957664,
+          "intercept": 2.8361507168788807,
+          "log_base": 2,
+          "coefficient": 7.141121758520631,
+          "log_rmse": 9.844886059248645e-05
+        },
+        "350": {
+          "observations": 50,
+          "minimum_n": 351,
+          "maximum_n": 498,
+          "power": 1.0032708847726979,
+          "intercept": 2.8412490623082056,
+          "log_base": 2,
+          "coefficient": 7.166402438988786,
+          "log_rmse": 2.2438887544800933e-05
+        }
+      },
+      "finite_model_descriptor": "validated finite affine formula",
+      "affine_periodic_candidate": {
+        "period_in_sample_index": 1,
+        "n_period": 3,
+        "sample_anchor": 0,
+        "q_definition": "q=n/3",
+        "slope": {
+          "numerator": 22,
+          "denominator": 3
+        },
+        "offsets": [
+          {
+            "numerator": -10,
+            "denominator": 1
+          }
+        ],
+        "training": {
+          "minimum_n": 102,
+          "maximum_n": 330,
+          "observations": 77,
+          "exact": true,
+          "minimum_observations_per_residue": 77
+        },
+        "validation": {
+          "minimum_n": 333,
+          "maximum_n": 498,
+          "observations": 56,
+          "exact": true,
+          "minimum_observations_per_residue": 56,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "validated": true,
+        "observed_exact_suffix": {
+          "minimum_n": 3,
+          "maximum_n": 498,
+          "observations": 166,
+          "coefficients_refitted": false
+        }
+      },
+      "affine_periodic_search": [
+        {
+          "period_in_sample_index": 1,
+          "exact_training_drift": true
+        }
+      ],
+      "printed_catalogue": {
+        "printed_value": 7.0,
+        "source_line": 1717
+      }
+    },
+    {
+      "tile": "333131313",
+      "observations": 166,
+      "minimum_n": 3,
+      "maximum_n": 498,
+      "tail_descriptor": "observed affine tail",
+      "asymptotic_status": "not inferred from finite survey",
+      "affine_tail": {
+        "slope": {
+          "numerator": 16,
+          "denominator": 3
+        },
+        "intercept": {
+          "numerator": -7,
+          "denominator": 1
+        },
+        "minimum_n": 333,
+        "maximum_n": 498,
+        "observations": 56
+      },
+      "fits": {
+        "3": {
+          "observations": 166,
+          "minimum_n": 3,
+          "maximum_n": 498,
+          "power": 1.036103236011651,
+          "intercept": 2.1191180913730348,
+          "log_base": 2,
+          "coefficient": 4.344283010728217,
+          "log_rmse": 0.05444370648969821
+        },
+        "30": {
+          "observations": 157,
+          "minimum_n": 30,
+          "maximum_n": 498,
+          "power": 1.0103455001066064,
+          "intercept": 2.3230360188339856,
+          "log_base": 2,
+          "coefficient": 5.003841246561623,
+          "log_rmse": 0.004224909970920083
+        },
+        "100": {
+          "observations": 133,
+          "minimum_n": 102,
+          "maximum_n": 498,
+          "power": 1.0057661772934412,
+          "intercept": 2.3606722952566526,
+          "log_base": 2,
+          "coefficient": 5.136096451367142,
+          "log_rmse": 0.0007767803403921009
+        },
+        "250": {
+          "observations": 83,
+          "minimum_n": 252,
+          "maximum_n": 498,
+          "power": 1.0037096081503691,
+          "intercept": 2.378161108469998,
+          "log_base": 2,
+          "coefficient": 5.198736770125067,
+          "log_rmse": 9.472900707636321e-05
+        },
+        "350": {
+          "observations": 50,
+          "minimum_n": 351,
+          "maximum_n": 498,
+          "power": 1.0031478380037857,
+          "intercept": 2.383066863585903,
+          "log_base": 2,
+          "coefficient": 5.216444698374406,
+          "log_rmse": 2.1592099687438923e-05
+        }
+      },
+      "finite_model_descriptor": "validated finite affine formula",
+      "affine_periodic_candidate": {
+        "period_in_sample_index": 1,
+        "n_period": 3,
+        "sample_anchor": 0,
+        "q_definition": "q=n/3",
+        "slope": {
+          "numerator": 16,
+          "denominator": 3
+        },
+        "offsets": [
+          {
+            "numerator": -7,
+            "denominator": 1
+          }
+        ],
+        "training": {
+          "minimum_n": 102,
+          "maximum_n": 330,
+          "observations": 77,
+          "exact": true,
+          "minimum_observations_per_residue": 77
+        },
+        "validation": {
+          "minimum_n": 333,
+          "maximum_n": 498,
+          "observations": 56,
+          "exact": true,
+          "minimum_observations_per_residue": 56,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "validated": true,
+        "observed_exact_suffix": {
+          "minimum_n": 3,
+          "maximum_n": 498,
+          "observations": 166,
+          "coefficients_refitted": false
+        }
+      },
+      "affine_periodic_search": [
+        {
+          "period_in_sample_index": 1,
+          "exact_training_drift": true
+        }
+      ],
+      "printed_catalogue": {
+        "printed_value": 5.0,
+        "source_line": 2707
+      }
+    },
+    {
+      "tile": "333333333",
+      "observations": 166,
+      "minimum_n": 3,
+      "maximum_n": 498,
+      "tail_descriptor": "observed affine tail",
+      "asymptotic_status": "not inferred from finite survey",
+      "affine_tail": {
+        "slope": {
+          "numerator": 4,
+          "denominator": 1
+        },
+        "intercept": {
+          "numerator": -3,
+          "denominator": 1
+        },
+        "minimum_n": 333,
+        "maximum_n": 498,
+        "observations": 56
+      },
+      "fits": {
+        "3": {
+          "observations": 166,
+          "minimum_n": 3,
+          "maximum_n": 498,
+          "power": 1.0191556194159042,
+          "intercept": 1.8425441448199238,
+          "log_base": 2,
+          "coefficient": 3.5864192417334317,
+          "log_rmse": 0.027081687314782433
+        },
+        "30": {
+          "observations": 157,
+          "minimum_n": 30,
+          "maximum_n": 498,
+          "power": 1.005872660654076,
+          "intercept": 1.9477531535066803,
+          "log_base": 2,
+          "coefficient": 3.8577326201452076,
+          "log_rmse": 0.0023827283739831155
+        },
+        "100": {
+          "observations": 133,
+          "minimum_n": 102,
+          "maximum_n": 498,
+          "power": 1.003285726316642,
+          "intercept": 1.969015101191361,
+          "log_base": 2,
+          "coefficient": 3.9150075811228855,
+          "log_rmse": 0.0004414027779472327
+        },
+        "250": {
+          "observations": 83,
+          "minimum_n": 252,
+          "maximum_n": 498,
+          "power": 1.0021163301050906,
+          "intercept": 1.9789595900146981,
+          "log_base": 2,
+          "coefficient": 3.9420869280905917,
+          "log_rmse": 5.3955204410466134e-05
+        },
+        "350": {
+          "observations": 50,
+          "minimum_n": 351,
+          "maximum_n": 498,
+          "power": 1.0017963256443012,
+          "intercept": 1.9817540867893002,
+          "log_base": 2,
+          "coefficient": 3.949730140905721,
+          "log_rmse": 1.2304917149066163e-05
+        }
+      },
+      "finite_model_descriptor": "validated finite affine formula",
+      "affine_periodic_candidate": {
+        "period_in_sample_index": 1,
+        "n_period": 3,
+        "sample_anchor": 0,
+        "q_definition": "q=n/3",
+        "slope": {
+          "numerator": 4,
+          "denominator": 1
+        },
+        "offsets": [
+          {
+            "numerator": -3,
+            "denominator": 1
+          }
+        ],
+        "training": {
+          "minimum_n": 102,
+          "maximum_n": 330,
+          "observations": 77,
+          "exact": true,
+          "minimum_observations_per_residue": 77
+        },
+        "validation": {
+          "minimum_n": 333,
+          "maximum_n": 498,
+          "observations": 56,
+          "exact": true,
+          "minimum_observations_per_residue": 56,
+          "mismatch_count": 0,
+          "mismatches": []
+        },
+        "validated": true,
+        "observed_exact_suffix": {
+          "minimum_n": 3,
+          "maximum_n": 498,
+          "observations": 166,
+          "coefficients_refitted": false
+        }
+      },
+      "affine_periodic_search": [
+        {
+          "period_in_sample_index": 1,
+          "exact_training_drift": true
+        }
+      ],
+      "printed_catalogue": {
+        "printed_value": 4.0,
+        "source_line": 2317
+      }
+    }
+  ]
+}

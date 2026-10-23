@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "purpose": "Exact finite-data affine-plus-periodic model checks; no asymptotic classification",
+  "sample_index": "q=n/3",
+  "sample_anchor": 0,
+  "n_spacing": 3,
+  "model": "T(n)=a*n+b[q mod p]",
+  "training": {"minimum_n": 102, "maximum_n": 330, "observations": 77},
+  "validation": {"minimum_n": 333, "maximum_n": 498, "observations": 56},
+  "candidate_periods_in_sample_index": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+  "minimum_training_observations_per_residue": 4,
+  "minimum_validation_observations_per_residue": 4,
+  "selection": "Select the smallest period fitting all training observations exactly, using rational arithmetic; validate that fixed model without selecting another period after seeing validation outcomes.",
+  "validation_requirement": "Every withheld observation must match exactly.",
+  "earlier_sizes": "After validation, report the earliest exact suffix of the full saved size list for the same fixed coefficients; do not refit using earlier observations.",
+  "power_fit": {"minimum_n": 102, "maximum_n": 498, "observations": 133, "method": "OLS log2(T)=alpha*log2(n)+intercept", "coefficient": "C=2^intercept", "weighting": "equal weight per sampled size"}
+}

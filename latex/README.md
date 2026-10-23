@@ -1,66 +1,43 @@
-# Building the paper
+# Paper source
 
-This directory contains the manuscript, preamble, bibliography and algorithm
-appendix. The manuscript includes the thirteen saved PDFs in
-[`../figures/paper/`](../figures/paper/README.md). Regression coefficients and
-sample ranges are loaded from the matching `figure_statistics.tex` in that
-directory. These assets are included in version control.
+This directory is a standalone LaTeX project. It contains the manuscript,
+bibliography, local preamble, appendices, thirteen saved figure PDFs and their
+numerical caption values. It can be copied or uploaded without any other part
+of the companion repository.
 
-From the repository root:
-
-```bash
-make -C latex
-```
-
-This compiles `latex/build/main.pdf` using the saved figures. It requires
-`latexmk`, `pdflatex`, BibTeX, and the LaTeX packages used by `preamble.sty`
-(including TikZ, PGFPlots, Forest and subfiles). Python is not required for
-normal compilation. The build does not render figures or run simulations.
-Missing saved figures produce an error rather than starting a computation.
-
-## Update the saved figures
-
-With the Python package installed, explicitly render the recorded numerical
-data and replace the saved manuscript set:
+Compile from this directory with a standard TeX Live installation:
 
 ```bash
-python -m pip install -e .
-make -C latex figures
-make -C latex
+pdflatex main.tex
+bibtex main
+pdflatex main.tex
+pdflatex main.tex
 ```
 
-The `figures` target renders into `figures/outputs/`, then saves copies of all
-thirteen PDFs, their matching caption values and a checksum manifest into
-`figures/paper/`. It does not run the simulation sweeps. Generating new outputs
-with `bml figures` alone leaves the manuscript's saved figure set unchanged.
-To save an already rendered complete build, use
-`bml save-paper-figures --source figures/outputs`.
+The result is `main.pdf`. Alternatively, use `latexmk -pdf main.tex`.
+The included `main.bbl` contains the compiled bibliography, so repeated
+PDFLaTeX runs also work without BibTeX until the references change.
+Compilation uses the saved figures and catalogue; it runs no simulations or
+Python code and requires no shell escape.
 
-## Regenerate the numerical data
+| File or directory | Contents |
+| --- | --- |
+| `main.tex` | Main manuscript |
+| `preamble.sty` | Packages, mathematical notation and paper metadata |
+| `refs.bib`, `main.bbl` | Editable references and compiled bibliography |
+| `figure_statistics.tex` | Saved coefficients and sample ranges used in captions |
+| `figures/` | The thirteen figure PDFs |
+| `sections/` | Algorithm and periodic-tiling catalogue |
 
-Simulation runs are separate, explicit steps. To regenerate the snapshot
-matrices and Figure 6/12 measurements through n=999, then update the paper:
+## Submission source
+
+Upload the source files and saved figures, including `main.bbl`, with
+`main.tex` at the archive root. Omit `main.pdf`, auxiliary files, logs and this
+README. From this directory, a source archive can be created with:
 
 ```bash
-make -C latex refresh
-make -C latex figures
-make -C latex
+zip -r ../miscellaneous/arxiv-source.zip main.tex preamble.sty refs.bib main.bbl figure_statistics.tex sections figures
 ```
 
-To extend Figures 6 and 12 to the original size lists, through n=10000, use
-`make -C latex full-data` instead of `refresh`. Full sweeps may take substantial
-time. Completed observations are saved in
-`data/clearing_times/north_first/checkpoints.json`, so an interrupted refresh
-resumes from them. The saved captions report the sample counts, maximum sizes
-and fits of the saved figure set.
-
-All current simulations and numbered figures start with North updates at t=1.
-The appendix retains the original exploratory classification tables and
-identifies them as historical estimates; they are not recomputed by the figure
-build. `figures/experiments/all-3x3.json` supplies the North-first exhaustive
-sweep for a new survey.
-
-The saved manuscript assets are small files intended for Git. Working outputs
-in `figures/outputs/`, LaTeX auxiliary files and the compiled paper PDF remain
-ignored. See [the data guide](../data/README.md) for the numerical sources of
-every figure and the status of the appendix estimates.
+See the [arXiv TeX submission instructions](https://info.arxiv.org/help/submit_tex.html)
+for supported inputs and bibliography handling.
